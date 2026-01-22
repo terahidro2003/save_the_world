@@ -57,5 +57,23 @@ public class Conditions
         return false;
     }
 
+    public boolean condition2(ArrayList<Point> points, int NUMPOINTS, Parameters_T parameters) {
+        for (int i = 2; i < NUMPOINTS; i++) {
+            Point vertex = points.get(i - 1);
+            Point first_point = points.get(i - 2);
+            Point last_point = points.get(i);
+
+            if (vertex == first_point || vertex == last_point) {
+                return false;
+            }
+
+            double angle = vertex.getAngleBetweenNeighbours(first_point, last_point);
+            if (angle < Math.PI - parameters.EPSILON || angle > Math.PI + parameters.EPSILON) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 }

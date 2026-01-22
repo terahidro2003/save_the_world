@@ -1,6 +1,5 @@
 package com.skarbalius;
 
-public class Point {
 import org.apache.commons.math3.geometry.euclidean.twod.Vector2D;
 
 public class Point
@@ -18,5 +17,20 @@ public class Point
         double dx = x - p.x;
         double dy = y - p.y;
         return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    public double getAngleBetweenNeighbours(Point p1, Point p2) {
+        Vector2D v1 = new Vector2D(p1.x - this.x, p1.y - this.y);
+        Vector2D v2 = new Vector2D(p2.x - this.x, p2.y - this.y);
+        return Vector2D.angle(v1, v2);
+    }
+
+   @Override
+   public boolean equals(Object o)
+    {
+        if (!(o instanceof Point p)) {
+           return false;
+       }
+        return this.x == p.x && this.y == p.y;
     }
 }
