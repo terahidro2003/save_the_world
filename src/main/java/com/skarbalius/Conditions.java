@@ -75,5 +75,33 @@ public class Conditions
         return false;
     }
 
+    public boolean condition10(ArrayList<Point> points, int NUMPOINTS, Parameters_T parameters) {
+        int num_first_interv_pts = parameters.E_PTS;
+        int num_second_interv_pts = parameters.F_PTS;
+        if (NUMPOINTS < 5
+                || num_first_interv_pts < 1
+                || num_second_interv_pts < 1
+                || num_first_interv_pts + num_second_interv_pts > NUMPOINTS - 3) {
+            return false;
+        }
+
+        for (int i = num_first_interv_pts + num_second_interv_pts + 2; i < NUMPOINTS; i++) {
+            Point v1 = points.get(i - num_second_interv_pts - num_first_interv_pts - 2);
+            Point v2 = points.get(i - num_second_interv_pts - 1);
+            Point v3 = points.get(i);
+
+            // Calculate the area of the triangle with Heron's formula
+            double a = v1.getDistance(v2);
+            double b = v2.getDistance(v3);
+            double c = v3.getDistance(v1);
+            double s = (a + b + c) / 2.0;
+            double area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
+
+            if (area > parameters.AREA1) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
