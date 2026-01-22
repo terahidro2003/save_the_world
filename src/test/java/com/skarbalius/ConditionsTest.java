@@ -1,10 +1,13 @@
 package com.skarbalius;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
+
 import java.util.ArrayList;
 
-public class ConditionsTest {
+public class ConditionsTest
+{
 
     @Test
     void testCondition0_PointsFarApart_ReturnsTrue() {
@@ -137,5 +140,62 @@ public class ConditionsTest {
         Conditions conditions = new Conditions(points, 3, params);
         assertFalse(conditions.condition10(points, 3, params));
     }
+
+    @Test
+    void testCondition11_XDecreases_ReturnsTrue() {
+        ArrayList<Point> points = new ArrayList<>();
+        points.add(new Point(5, 0));  // i
+        points.add(new Point(3, 1));  // intervening (G_PTS = 1)
+        points.add(new Point(2, 2));  // j, X[j] - X[i] = 2 - 5 = -3 < 0
+
+        Parameters_T params = new TestParameters();
+        params.G_PTS = 1;
+
+        Conditions conditions = new Conditions(points, 3, params);
+        assertTrue(conditions.condition11(points, 3, params));
+    }
+
+    @Test
+    void testCondition11_XIncreases_ReturnsFalse() {
+        ArrayList<Point> points = new ArrayList<>();
+        points.add(new Point(1, 0));  // i
+        points.add(new Point(2, 1));  // intervening
+        points.add(new Point(3, 2));  // j, X[j] - X[i] = 3 - 1 = 2 > 0
+
+        Parameters_T params = new TestParameters();
+        params.G_PTS = 1;
+
+        Conditions conditions = new Conditions(points, 3, params);
+        assertFalse(conditions.condition11(points, 3, params));
+    }
+
+    @Test
+    void testCondition11_InsufficientPoints_ReturnsFalse() {
+        ArrayList<Point> points = new ArrayList<>();
+        points.add(new Point(5, 0));
+        points.add(new Point(2, 1));
+
+        Parameters_T params = new TestParameters();
+        params.G_PTS = 1;
+
+        Conditions conditions = new Conditions(points, 2, params);
+        assertFalse(conditions.condition11(points, 2, params));
+    }
+
+    @Test
+    void testCondition11_MultipleInterveningPoints_ReturnsTrue() {
+        ArrayList<Point> points = new ArrayList<>();
+        points.add(new Point(10, 0));  // i
+        points.add(new Point(8, 1));   // intervening
+        points.add(new Point(7, 2));   // intervening
+        points.add(new Point(5, 3));   // j, X[j] - X[i] = 5 - 10 = -5 < 0
+
+        Parameters_T params = new TestParameters();
+        params.G_PTS = 2;
+
+        Conditions conditions = new Conditions(points, 4, params);
+        assertTrue(conditions.condition11(points, 4, params));
+    }
+
 
 }
