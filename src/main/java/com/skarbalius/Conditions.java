@@ -19,6 +19,14 @@ public class Conditions
         return cmv;
     }
 
+    public boolean condition0(ArrayList<Point> points, int NUMPOINTS, Parameters_T parameters) {
+        for (int i = 1; i < NUMPOINTS; i++) {
+            if (points.get(i).getDistance(points.get(i - 1)) > parameters.LENGTH1) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 
 }
