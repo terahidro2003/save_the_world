@@ -1,6 +1,7 @@
 package com.skarbalius;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Vector;
 
 public class Conditions
@@ -94,6 +95,61 @@ public class Conditions
             if (area > parameters.AREA1) {
                 return true;
             }
+        }
+        return false;
+    }
+
+    public boolean condition4(ArrayList<Point> points, int NUMPOINTS, Parameters_T parameters, int QUADS) {
+        for(int i = parameters.Q_PTS; i <= NUMPOINTS; i++) {
+            ArrayList<Integer> quadArray = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+            int uniqueQuad = 0;
+            for(int j = i - parameters.Q_PTS; j < i; j++) {
+                if(points.get(j).x == 0) {
+                    if(points.get(j).y >= 0 && quadArray.contains(1)) {
+                        quadArray.remove(Integer.valueOf(1));
+                        uniqueQuad++;
+                        continue;    
+                    }
+                    if(points.get(j).y < 0 && quadArray.contains(3)) {
+                        quadArray.remove(Integer.valueOf(3));
+                        uniqueQuad++;
+                        continue;    
+                    }
+                }
+                if(points.get(j).y == 0) {
+                    if(points.get(j).x >= 0 && quadArray.contains(1)) {
+                        quadArray.remove(Integer.valueOf(1));
+                        uniqueQuad++;
+                        continue;    
+                    }
+                    if(points.get(j).x < 0 && quadArray.contains(2)) {
+                        quadArray.remove(Integer.valueOf(2));
+                        uniqueQuad++;
+                        continue;    
+                    }
+                }
+                if(points.get(j).x > 0 && points.get(j).y > 0 && quadArray.contains(1)) {
+                    quadArray.remove(Integer.valueOf(1));
+                        uniqueQuad++;
+                        continue; 
+                }
+                if(points.get(j).x < 0 && points.get(j).y > 0 && quadArray.contains(2)) {
+                    quadArray.remove(Integer.valueOf(2));
+                        uniqueQuad++;
+                        continue; 
+                }
+                if(points.get(j).x < 0 && points.get(j).y < 0 && quadArray.contains(3)) {
+                    quadArray.remove(Integer.valueOf(3));
+                        uniqueQuad++;
+                        continue; 
+                }
+                if(points.get(j).x > 0 && points.get(j).y < 0 && quadArray.contains(4)) {
+                    quadArray.remove(Integer.valueOf(4));
+                        uniqueQuad++;
+                        continue; 
+                }
+            }
+            if(uniqueQuad > QUADS) return true;
         }
         return false;
     }
