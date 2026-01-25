@@ -11,7 +11,13 @@ public class Decide {
 
     public void DECIDE(InputData input) {
         // 1. calculate CMV 
-        boolean[] cmv = licCalculator.calculateAllLICs(input);
+        // mock data for CMV
+        boolean[] cmv = new boolean[15];
+        cmv[0] = true;  
+        cmv[1] = false;
+        cmv[2] = true;  
+        //TODO : change mock data to real one
+        // boolean[] cmv = licCalculator.calculateAllLICs(input);
 
         // 2. calc PUM 
         boolean[][] pum = matrixProcessor.calculatePUM(cmv, input.getLcm());
