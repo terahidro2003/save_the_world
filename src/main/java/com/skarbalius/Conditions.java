@@ -64,7 +64,7 @@ public class Conditions
             Point first_point = points.get(i - 2);
             Point last_point = points.get(i);
 
-            if (vertex == first_point || vertex == last_point) {
+            if (vertex.equals(first_point) || vertex.equals(last_point)) {
                 return false;
             }
 
