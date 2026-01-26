@@ -198,6 +198,32 @@ public class Conditions
         return false;
     }
 
+    public boolean condition9(ArrayList<Point> points, int NUMPOINTS, Parameters_T parameters) {
+        int first_interv_pts = parameters.C_PTS;
+        int second_interv_pts = parameters.D_PTS;
+        if (NUMPOINTS < 5
+                || first_interv_pts < 1
+                || second_interv_pts < 1
+                || first_interv_pts + second_interv_pts > NUMPOINTS - 3) {
+            return false;
+        }
+        // TODO: Reduce duplication with condition 2, 10, 1 & 12
+        // Literally the same as condition 2 but with intervening points
+        for (int i = first_interv_pts + second_interv_pts + 2; i < NUMPOINTS; i++) {
+            Point v1 = points.get(i - second_interv_pts - first_interv_pts - 2);
+            Point v2 = points.get(i - second_interv_pts - 1);
+            Point v3 = points.get(i);
+            if (v2.equals(v1) || v2.equals(v3)) {
+                return false;
+            }
+            double angle = v2.getAngleBetweenNeighbours(v1, v3);
+            if (angle < Math.PI - parameters.EPSILON || angle > Math.PI + parameters.EPSILON) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean condition10(ArrayList<Point> points, int NUMPOINTS, Parameters_T parameters) {
         int num_first_interv_pts = parameters.E_PTS;
         int num_second_interv_pts = parameters.F_PTS;
