@@ -77,22 +77,15 @@ public class Conditions
     }
 
     public boolean condition3(ArrayList<Point> points, int NUMPOINTS, Parameters_T parameters) {
-        if (NUMPOINTS < 3) return false;
-        
-        for(int i = 2; i < NUMPOINTS; i++) { 
-            
+        if (NUMPOINTS < 3) {return false;}
+
+        for (int i = 2; i < NUMPOINTS; i++) {
+
             Point p1 = points.get(i - 2);
             Point p2 = points.get(i - 1);
             Point p3 = points.get(i);
 
-            // Calculate the area of the triangle with Heron's formula
-            double a = p1.getDistance(p2);
-            double b = p2.getDistance(p3);
-            double c = p3.getDistance(p1);
-            double s = (a + b + c) / 2.0;
-            double area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
-
-            if (area > parameters.AREA1) {
+            if (Point.getArea(p1, p2, p3) > parameters.AREA1) {
                 return true;
             }
         }
@@ -100,104 +93,103 @@ public class Conditions
     }
 
     public boolean condition4(ArrayList<Point> points, int NUMPOINTS, Parameters_T parameters, int QUADS) {
-        for(int i = parameters.Q_PTS; i <= NUMPOINTS; i++) {
+        for (int i = parameters.Q_PTS; i <= NUMPOINTS; i++) {
             ArrayList<Integer> quadArray = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
             int uniqueQuad = 0;
-            for(int j = i - parameters.Q_PTS; j < i; j++) {
-                if(points.get(j).x == 0) {
-                    if(points.get(j).y >= 0 && quadArray.contains(1)) {
+            for (int j = i - parameters.Q_PTS; j < i; j++) {
+                if (points.get(j).x == 0) {
+                    if (points.get(j).y >= 0 && quadArray.contains(1)) {
                         quadArray.remove(Integer.valueOf(1));
                         uniqueQuad++;
-                        continue;    
+                        continue;
                     }
-                    if(points.get(j).y < 0 && quadArray.contains(3)) {
+                    if (points.get(j).y < 0 && quadArray.contains(3)) {
                         quadArray.remove(Integer.valueOf(3));
                         uniqueQuad++;
-                        continue;    
+                        continue;
                     }
                 }
-                if(points.get(j).y == 0) {
-                    if(points.get(j).x >= 0 && quadArray.contains(1)) {
+                if (points.get(j).y == 0) {
+                    if (points.get(j).x >= 0 && quadArray.contains(1)) {
                         quadArray.remove(Integer.valueOf(1));
                         uniqueQuad++;
-                        continue;    
+                        continue;
                     }
-                    if(points.get(j).x < 0 && quadArray.contains(2)) {
+                    if (points.get(j).x < 0 && quadArray.contains(2)) {
                         quadArray.remove(Integer.valueOf(2));
                         uniqueQuad++;
-                        continue;    
+                        continue;
                     }
                 }
-                if(points.get(j).x > 0 && points.get(j).y > 0 && quadArray.contains(1)) {
+                if (points.get(j).x > 0 && points.get(j).y > 0 && quadArray.contains(1)) {
                     quadArray.remove(Integer.valueOf(1));
-                        uniqueQuad++;
-                        continue; 
+                    uniqueQuad++;
+                    continue;
                 }
-                if(points.get(j).x < 0 && points.get(j).y > 0 && quadArray.contains(2)) {
+                if (points.get(j).x < 0 && points.get(j).y > 0 && quadArray.contains(2)) {
                     quadArray.remove(Integer.valueOf(2));
-                        uniqueQuad++;
-                        continue; 
+                    uniqueQuad++;
+                    continue;
                 }
-                if(points.get(j).x < 0 && points.get(j).y < 0 && quadArray.contains(3)) {
+                if (points.get(j).x < 0 && points.get(j).y < 0 && quadArray.contains(3)) {
                     quadArray.remove(Integer.valueOf(3));
-                        uniqueQuad++;
-                        continue; 
+                    uniqueQuad++;
+                    continue;
                 }
-                if(points.get(j).x > 0 && points.get(j).y < 0 && quadArray.contains(4)) {
+                if (points.get(j).x > 0 && points.get(j).y < 0 && quadArray.contains(4)) {
                     quadArray.remove(Integer.valueOf(4));
-                        uniqueQuad++;
-                        continue; 
+                    uniqueQuad++;
+                    continue;
                 }
             }
-            if(uniqueQuad > QUADS) return true;
+            if (uniqueQuad > QUADS) {return true;}
         }
         return false;
     }
 
     public boolean condition5(ArrayList<Point> points, int NUMPOINTS, Parameters_T parameters) {
-        for(int i = 0; i < NUMPOINTS - 1; i++) {
+        for (int i = 0; i < NUMPOINTS - 1; i++) {
             Point point1 = points.get(i);
-            Point point2 = points.get(i+1);
+            Point point2 = points.get(i + 1);
 
-            if(point2.x - point1.x < 0) return true;
+            if (point2.x - point1.x < 0) {return true;}
         }
         return false;
     }
 
     public boolean condition6(ArrayList<Point> points, int NUMPOINTS, Parameters_T parameters, double DIST) {
-        
-        if(NUMPOINTS < 3) return false;
-        
-        for(int i = parameters.N_PTS; i <= NUMPOINTS; i++){
+
+        if (NUMPOINTS < 3) {return false;}
+
+        for (int i = parameters.N_PTS; i <= NUMPOINTS; i++) {
             Point point1 = points.get(i - parameters.N_PTS);
             Point point2 = points.get(i - 1);
 
-            if(point1.x == point2.x && point1.y == point2.y) {
-                for(int j = i - parameters.N_PTS + 1; j < i - 1; j++) {
+            if (point1.x == point2.x && point1.y == point2.y) {
+                for (int j = i - parameters.N_PTS + 1; j < i - 1; j++) {
                     Point point3 = points.get(j);
-                    
+
                     double dx = point3.x - point1.x;
                     double dy = point3.y - point1.y;
-                    
+
                     double distance = Math.sqrt(dx * dx + dy * dy);
 
-                    if(distance > DIST) {
+                    if (distance > DIST) {
                         return true;
                     }
                 }
-            } 
-            else {
+            } else {
                 double dx = point2.x - point1.x;
                 double dy = point2.y - point1.y;
 
                 double lineDistance = Math.sqrt(dx * dx + dy * dy);
-            
 
-                for(int j = i - parameters.N_PTS + 1; j < i - 1; j++) {
+
+                for (int j = i - parameters.N_PTS + 1; j < i - 1; j++) {
                     Point point3 = points.get(j);
-                    double dj = Math.abs(((dy * point3.x) - (dx * point3.y) + point2.x*point1.y - point2.y*point1.x)/lineDistance);
+                    double dj = Math.abs(((dy * point3.x) - (dx * point3.y) + point2.x * point1.y - point2.y * point1.x) / lineDistance);
 
-                    if(dj > DIST) {
+                    if (dj > DIST) {
                         return true;
                     }
                 }
@@ -221,15 +213,7 @@ public class Conditions
             Point v2 = points.get(i - num_second_interv_pts - 1);
             Point v3 = points.get(i);
 
-            // Calculate the area of the triangle with Heron's formula
-            // TODO: Move to GeometricUtils (reuse in condition3)
-            double a = v1.getDistance(v2);
-            double b = v2.getDistance(v3);
-            double c = v3.getDistance(v1);
-            double s = (a + b + c) / 2.0;
-            double area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
-
-            if (area > parameters.AREA1) {
+            if (Point.getArea(v1, v2, v3) > parameters.AREA1) {
                 return true;
             }
         }
