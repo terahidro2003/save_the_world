@@ -219,6 +219,41 @@ public class Conditions
         return false;
     }
 
+    public boolean condition8(ArrayList<Point> points, int NUMPOINTS, Parameters_T parameters) {
+
+    if (NUMPOINTS < 5) { return false; }
+
+    int A_PTS = parameters.A_PTS;
+    int B_PTS = parameters.B_PTS;
+
+    for (int i = 0; i < NUMPOINTS - A_PTS - B_PTS - 2; i++) {
+
+        Point p1 = points.get(i);
+        Point p2 = points.get(i + A_PTS + 1);
+        Point p3 = points.get(i + A_PTS + B_PTS + 2);
+
+        double a = p1.getDistance(p2);
+        double b = p2.getDistance(p3);
+        double c = p3.getDistance(p1);
+
+        double area = Point.getArea(p1, p2, p3);
+
+        double requiredRadius;
+
+        if (area == 0) {
+            double maxDist = Math.max(a, Math.max(b, c));
+            requiredRadius = maxDist / 2.0;
+        } else {
+            requiredRadius = (a * b * c) / (4.0 * area);
+        }
+
+        if (requiredRadius > parameters.RADIUS1) {
+            return true;
+        }
+    }
+    return false;
+}
+
 
     public boolean condition9(ArrayList<Point> points, int NUMPOINTS, Parameters_T parameters) {
         int first_interv_pts = parameters.C_PTS;
