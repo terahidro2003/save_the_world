@@ -2,7 +2,7 @@ package com.skarbalius;
 
 import org.apache.commons.math3.geometry.euclidean.twod.Vector2D;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Point
 {
@@ -14,13 +14,12 @@ public class Point
         this.y = y;
     }
 
-    public static Point getCentroid(ArrayList<Point> points) {
-        Point center = points.stream()
-                .reduce(new Point(0, 0), (acc, p) -> {
-                    acc.x += p.x;
-                    acc.y += p.y;
-                    return acc;
-                });
+    public static Point getCentroid(List<Point> points) {
+        Point center = points.stream().reduce(new Point(0, 0), (acc, p) -> {
+            acc.x += p.x;
+            acc.y += p.y;
+            return acc;
+        });
         center.x /= 3;
         center.y /= 3;
         return center;
@@ -31,7 +30,7 @@ public class Point
     /**
      * Calculate the area of a triangle given its vertices using Heron's formula
      */
-    public static double getArea(Point v1, Point v2, Point v3) {
+    public static double getAreaOfTriangle(Point v1, Point v2, Point v3) {
         double a = v1.getDistance(v2);
         double b = v2.getDistance(v3);
         double c = v3.getDistance(v1);
@@ -89,3 +88,5 @@ public class Point
         return this.x == p.x && this.y == p.y;
     }
 }
+
+record Triple(Point a, Point b, Point c) {}

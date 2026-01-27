@@ -24,7 +24,7 @@ public class Condition1Test
         params.RADIUS1 = 5.0f; // smaller than required radius of ~5.77
 
         Conditions conditions = new Conditions(points, 3, params);
-        assertTrue(conditions.condition1(points, 3, params));
+        assertTrue(conditions.condition1(points, params));
     }
 
     @Test
@@ -37,6 +37,6 @@ public class Condition1Test
         Parameters_T params = new TestParameters();
         Conditions conditions = new Conditions(points, 3, params);
 
-        assertFalse(conditions.condition1(points, 3, params));
+        assertFalse(conditions.condition1(points, params));
     }
 }

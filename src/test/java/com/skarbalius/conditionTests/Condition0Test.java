@@ -21,7 +21,7 @@ public class Condition0Test
         Parameters_T params = new TestParameters();
         Conditions conditions = new Conditions(points, 3, params);
 
-        assertTrue(conditions.condition0(points, 3, params));
+        assertTrue(conditions.condition0(points, params));
     }
 
     @Test
@@ -34,6 +34,6 @@ public class Condition0Test
         Parameters_T params = new TestParameters();
         Conditions conditions = new Conditions(points, 3, params);
 
-        assertFalse(conditions.condition0(points, 3, params));
+        assertFalse(conditions.condition0(points, params));
     }
 }

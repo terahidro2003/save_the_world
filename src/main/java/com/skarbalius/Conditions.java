@@ -4,92 +4,41 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Vector;
 
+import static com.skarbalius.GeometryPredicates.*;
+import static com.skarbalius.PointWindows.*;
+
 public class Conditions
 {
 
     private final Vector<Boolean> cmv;
 
     public Conditions(ArrayList<Point> points, int NUMPOINTS, Parameters_T parameters) {
-        cmv = new Vector<Boolean>(15);
-        cmv.add(condition0(points, NUMPOINTS, parameters));
-        cmv.add(condition1(points, NUMPOINTS, parameters));
-        cmv.add(condition2(points, NUMPOINTS, parameters));
+        cmv = new Vector<>(15);
+        cmv.add(condition0(points, parameters));
+        cmv.add(condition1(points, parameters));
+        cmv.add(condition2(points, parameters));
     }
 
     public Vector<Boolean> getCMV() {
         return cmv;
     }
 
-    public boolean condition0(ArrayList<Point> points, int NUMPOINTS, Parameters_T parameters) {
-        for (int i = 1; i < NUMPOINTS; i++) {
-            if (points.get(i).getDistance(points.get(i - 1)) > parameters.LENGTH1) {
-                return true;
-            }
-        }
-        return false;
+    public boolean condition0(ArrayList<Point> points, Parameters_T parameters) {
+        return anyConsecutivePair(points, (p1, p2) -> p1.getDistance(p2) > parameters.LENGTH1);
     }
 
-    public boolean condition1(ArrayList<Point> points, int NUMPOINTS, Parameters_T parameters) {
-        Point center;
-
-        for (int i = 2; i < NUMPOINTS; i++) {
-            ArrayList<Point> consecutive_points = new ArrayList<Point>(3);
-            for (int j = i - 2; j <= i; j++) {
-                consecutive_points.add(points.get(j));
-            }
-
-            center = consecutive_points.stream()
-                    .reduce(new Point(0, 0), (acc, p) -> {
-                        acc.x += p.x;
-                        acc.y += p.y;
-                        return acc;
-                    });
-            center.x /= 3;
-            center.y /= 3;
-
-            Point finalCenter = center;
-            boolean min_one_outside = consecutive_points.stream()
-                    .anyMatch(point -> point.getDistance(finalCenter) > parameters.RADIUS1);
-
-            if (min_one_outside) {
-                return true;
-            }
-        }
-        return false;
+    public boolean condition1(ArrayList<Point> points, Parameters_T parameters) {
+        return anyConsecutiveTriple(points,
+                                    (p1, p2, p3) -> anyOutsideRadiusFromCentroid(p1, p2, p3, parameters.RADIUS1));
     }
 
-    public boolean condition2(ArrayList<Point> points, int NUMPOINTS, Parameters_T parameters) {
-        for (int i = 2; i < NUMPOINTS; i++) {
-            Point vertex = points.get(i - 1);
-            Point first_point = points.get(i - 2);
-            Point last_point = points.get(i);
-
-            if (vertex.equals(first_point) || vertex.equals(last_point)) {
-                return false;
-            }
-
-            double angle = vertex.getAngleBetweenNeighbours(first_point, last_point);
-            if (angle < Math.PI - parameters.EPSILON || angle > Math.PI + parameters.EPSILON) {
-                return true;
-            }
-        }
-        return false;
+    public boolean condition2(ArrayList<Point> points, Parameters_T parameters) {
+        return anyConsecutiveTriple(points, (p1, p2, p3) -> angleNotWithinEpsilonOfPi(p1, p2, p3, parameters.EPSILON),
+                                    (p1, p2, p3) -> p2.equals(p1) || p2.equals(p3));
     }
 
-    public boolean condition3(ArrayList<Point> points, int NUMPOINTS, Parameters_T parameters) {
-        if (NUMPOINTS < 3) {return false;}
-
-        for (int i = 2; i < NUMPOINTS; i++) {
-
-            Point p1 = points.get(i - 2);
-            Point p2 = points.get(i - 1);
-            Point p3 = points.get(i);
-
-            if (Point.getArea(p1, p2, p3) > parameters.AREA1) {
-                return true;
-            }
-        }
-        return false;
+    public boolean condition3(ArrayList<Point> points, Parameters_T parameters) {
+        return anyConsecutiveTriple(points, (p1, p2, p3) -> Point.getAreaOfTriangle(p1, p2, p3) > parameters.AREA1);
     }
 
     public boolean condition4(ArrayList<Point> points, int NUMPOINTS, Parameters_T parameters, int QUADS) {
@@ -170,87 +119,50 @@ public class Conditions
     }
 
     public boolean condition8(ArrayList<Point> points, int NUMPOINTS, Parameters_T parameters) {
+        if (NUMPOINTS < 5) { return false; }
 
-    if (NUMPOINTS < 5) { return false; }
+        int A_PTS = parameters.A_PTS;
+        int B_PTS = parameters.B_PTS;
 
-    int A_PTS = parameters.A_PTS;
-    int B_PTS = parameters.B_PTS;
+        for (int i = 0; i < NUMPOINTS - A_PTS - B_PTS - 2; i++) {
 
-    for (int i = 0; i < NUMPOINTS - A_PTS - B_PTS - 2; i++) {
+            Point p1 = points.get(i);
+            Point p2 = points.get(i + A_PTS + 1);
+            Point p3 = points.get(i + A_PTS + B_PTS + 2);
 
-        Point p1 = points.get(i);
-        Point p2 = points.get(i + A_PTS + 1);
-        Point p3 = points.get(i + A_PTS + B_PTS + 2);
+            double a = p1.getDistance(p2);
+            double b = p2.getDistance(p3);
+            double c = p3.getDistance(p1);
 
-        double a = p1.getDistance(p2);
-        double b = p2.getDistance(p3);
-        double c = p3.getDistance(p1);
+            double area = Point.getAreaOfTriangle(p1, p2, p3);
 
-        double area = Point.getArea(p1, p2, p3);
+            double requiredRadius;
 
-        double requiredRadius;
-
-        if (area == 0) {
-            double maxDist = Math.max(a, Math.max(b, c));
-            requiredRadius = maxDist / 2.0;
-        } else {
-            requiredRadius = (a * b * c) / (4.0 * area);
-        }
-
-        if (requiredRadius > parameters.RADIUS1) {
-            return true;
-        }
-    }
-    return false;
-}
-
-
-    public boolean condition9(ArrayList<Point> points, int NUMPOINTS, Parameters_T parameters) {
-        int first_interv_pts = parameters.C_PTS;
-        int second_interv_pts = parameters.D_PTS;
-        if (NUMPOINTS < 5
-                || first_interv_pts < 1
-                || second_interv_pts < 1
-                || first_interv_pts + second_interv_pts > NUMPOINTS - 3) {
-            return false;
-        }
-        // TODO: Reduce duplication with condition 2, 10, 1 & 12
-        // Literally the same as condition 2 but with intervening points
-        for (int i = first_interv_pts + second_interv_pts + 2; i < NUMPOINTS; i++) {
-            Point v1 = points.get(i - second_interv_pts - first_interv_pts - 2);
-            Point v2 = points.get(i - second_interv_pts - 1);
-            Point v3 = points.get(i);
-            if (v2.equals(v1) || v2.equals(v3)) {
-                return false;
+            if (area == 0) {
+                double maxDist = Math.max(a, Math.max(b, c));
+                requiredRadius = maxDist / 2.0;
+            } else {
+                requiredRadius = (a * b * c) / (4.0 * area);
             }
+
+            if (requiredRadius > parameters.RADIUS1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    public boolean condition9(ArrayList<Point> points, Parameters_T parameters) {
+        return anySeparatedTriple(points, parameters.C_PTS, parameters.D_PTS, (v1, v2, v3) -> {
             double angle = v2.getAngleBetweenNeighbours(v1, v3);
-            if (angle < Math.PI - parameters.EPSILON || angle > Math.PI + parameters.EPSILON) {
-                return true;
-            }
-        }
-        return false;
+            return angle < Math.PI - parameters.EPSILON || angle > Math.PI + parameters.EPSILON;
+        }, (v1, v2, v3) -> v2.equals(v1) || v2.equals(v3));
     }
 
-    public boolean condition10(ArrayList<Point> points, int NUMPOINTS, Parameters_T parameters) {
-        int num_first_interv_pts = parameters.E_PTS;
-        int num_second_interv_pts = parameters.F_PTS;
-        if (NUMPOINTS < 5
-                || num_first_interv_pts < 1
-                || num_second_interv_pts < 1
-                || num_first_interv_pts + num_second_interv_pts > NUMPOINTS - 3) {
-            return false;
-        }
-
-        for (int i = num_first_interv_pts + num_second_interv_pts + 2; i < NUMPOINTS; i++) {
-            Point v1 = points.get(i - num_second_interv_pts - num_first_interv_pts - 2);
-            Point v2 = points.get(i - num_second_interv_pts - 1);
-            Point v3 = points.get(i);
-
-            if (Point.getArea(v1, v2, v3) > parameters.AREA1) {
-                return true;
-            }
-        }
-        return false;
+    public boolean condition10(ArrayList<Point> points, Parameters_T parameters) {
+        return anySeparatedTriple(points, parameters.E_PTS, parameters.F_PTS,
+                                  (v1, v2, v3) -> Point.getAreaOfTriangle(v1, v2, v3) > parameters.AREA1);
     }
 
     public boolean condition11(ArrayList<Point> points, int NUMPOINTS, Parameters_T parameters) {
@@ -291,54 +203,16 @@ public class Conditions
         return found_l1 && found_l2;
     }
 
-    public boolean condition13(ArrayList<Point> points, int NUMPOINTS, Parameters_T parameters) {
-        int first_interv_pts = parameters.A_PTS;
-        int second_interv_pts = parameters.B_PTS;
-        if (NUMPOINTS < 5 || parameters.RADIUS2 < 0) {
-            return false;
-        }
-        // TODO: Reduce duplication with condition10, 1 & 12
-        boolean found_s1 = false;
-        boolean found_s2 = false;
-        for (int i = first_interv_pts + second_interv_pts + 2; i < NUMPOINTS; i++) {
-            Point v1 = points.get(i - second_interv_pts - first_interv_pts - 2);
-            Point v2 = points.get(i - second_interv_pts - 1);
-            Point v3 = points.get(i);
-            ArrayList<Point> curr_points = new ArrayList<Point>(Arrays.asList(v1, v2, v3));
-            final Point center = Point.getCentroid(curr_points);
-            if (!found_s1) {
-                found_s1 = curr_points.stream()
-                        .anyMatch(point -> point.getDistance(center) > parameters.RADIUS1);
-            }
-            if (!found_s2) {
-                found_s2 = curr_points.stream()
-                        .allMatch(point -> point.getDistance(center) <= parameters.RADIUS2);
-            }
-        }
-        return found_s1 && found_s2;
+    public boolean condition13(ArrayList<Point> points, Parameters_T parameters) {
+        var triples = separatedTriples(points, parameters.A_PTS, parameters.B_PTS);
+        return existsBoth(triples, t -> anyOutsideRadiusFromCentroid(t.a(), t.b(), t.c(), parameters.RADIUS1),
+                          t -> allWithinRadiusFromCentroid(t.a(), t.b(), t.c(), parameters.RADIUS2));
     }
 
-    public boolean condition14(ArrayList<Point> points, int NUMPOINTS, Parameters_T parameters) {
-        int first_interv_pts = parameters.E_PTS;
-        int second_interv_pts = parameters.F_PTS;
-        if (NUMPOINTS < 5 || parameters.AREA2 < 0) {
-            return false;
-        }
-        // TODO: Reduce duplication with condition10, 1, 12, 13
-        boolean found_s1 = false;
-        boolean found_s2 = false;
-        for (int i = first_interv_pts + second_interv_pts + 2; i < NUMPOINTS; i++) {
-            Point v1 = points.get(i - second_interv_pts - first_interv_pts - 2);
-            Point v2 = points.get(i - second_interv_pts - 1);
-            Point v3 = points.get(i);
-            if (!found_s1) {
-                found_s1 = Point.getArea(v1, v2, v3) > parameters.AREA1;
-            }
-            if (!found_s2) {
-                found_s2 = Point.getArea(v1, v2, v3) < parameters.AREA2;
-            }
-        }
-        return found_s1 && found_s2;
+    public boolean condition14(ArrayList<Point> points, Parameters_T parameters) {
+        var triples = separatedTriples(points, parameters.E_PTS, parameters.F_PTS);
+        return existsBoth(triples, t -> Point.getAreaOfTriangle(t.a(), t.b(), t.c()) > parameters.AREA1,
+                          t -> Point.getAreaOfTriangle(t.a(), t.b(), t.c()) < parameters.AREA2);
     }
 
 }
