@@ -1,4 +1,4 @@
-package com.skarbalius;
+package com.skarbalius.LIC;
 
 import org.apache.commons.math3.geometry.euclidean.twod.Vector2D;
 

@@ -1,7 +1,7 @@
 package com.skarbalius.task;
 
-import com.skarbalius.Parameters_T;
-import com.skarbalius.Point;
+import com.skarbalius.LIC.Parameters_T;
+import com.skarbalius.LIC.Point;
 import com.skarbalius.input.BooleanOperator;
 
 import java.util.ArrayList;

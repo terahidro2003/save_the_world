@@ -1,4 +1,4 @@
-package com.skarbalius;
+package com.skarbalius.LIC;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 

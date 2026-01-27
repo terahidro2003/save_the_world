@@ -1,11 +1,11 @@
-package com.skarbalius;
+package com.skarbalius.LIC;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Vector;
 
-import static com.skarbalius.GeometryPredicates.*;
-import static com.skarbalius.PointWindows.*;
+import static com.skarbalius.LIC.GeometryPredicates.*;
+import static com.skarbalius.LIC.PointWindows.*;
 
 public class Conditions
 {

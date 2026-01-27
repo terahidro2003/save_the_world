@@ -1,6 +1,6 @@
 package com.skarbalius.conditionTests;
 
-import com.skarbalius.Parameters_T;
+import com.skarbalius.LIC.Parameters_T;
 
 public class TestParameters extends Parameters_T
 {

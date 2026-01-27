@@ -1,4 +1,4 @@
-package com.skarbalius;
+package com.skarbalius.LIC;
 
 import java.util.Arrays;
 import java.util.List;

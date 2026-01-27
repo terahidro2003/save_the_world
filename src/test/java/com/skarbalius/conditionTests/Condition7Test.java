@@ -1,8 +1,8 @@
 package com.skarbalius.conditionTests;
 
-import com.skarbalius.Conditions;
-import com.skarbalius.Parameters_T;
-import com.skarbalius.Point;
+import com.skarbalius.LIC.Conditions;
+import com.skarbalius.LIC.Parameters_T;
+import com.skarbalius.LIC.Point;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
