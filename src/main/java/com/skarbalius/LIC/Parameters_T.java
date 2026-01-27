@@ -1,4 +1,4 @@
-package com.skarbalius;
+package com.skarbalius.LIC;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
@@ -10,6 +10,8 @@ public abstract class Parameters_T
     public double EPSILON;
     public double AREA1;
     public int Q_PTS;
+    public double DIST;
+    public int QUADS;
     public int N_PTS;
     public int K_PTS;
     public int A_PTS;

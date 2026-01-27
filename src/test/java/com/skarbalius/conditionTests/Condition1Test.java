@@ -1,0 +1,42 @@
+package com.skarbalius.conditionTests;
+
+import com.skarbalius.LIC.Conditions;
+import com.skarbalius.LIC.Parameters_T;
+import com.skarbalius.LIC.Point;
+import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+public class Condition1Test
+{
+    @Test
+    void testCondition1_PointsOutsideRadius_ReturnsTrue() {
+        ArrayList<Point> points = new ArrayList<>();
+        // Equilateral triangle with side length ~17.3, circumradius = 10
+        points.add(new Point(0, 0));
+        points.add(new Point(10, 0));
+        points.add(new Point(5, 8.66f));
+
+        Parameters_T params = new TestParameters();
+        params.RADIUS1 = 5.0f; // smaller than required radius of ~5.77
+
+        Conditions conditions = new Conditions(points, params);
+        assertTrue(conditions.condition1(points, params));
+    }
+
+    @Test
+    void testCondition1_PointsInsideRadius_ReturnsFalse() {
+        ArrayList<Point> points = new ArrayList<>();
+        points.add(new Point(0, 0));
+        points.add(new Point(1, 0));
+        points.add(new Point(0.5f, 0.5f));
+
+        Parameters_T params = new TestParameters();
+        Conditions conditions = new Conditions(points, params);
+
+        assertFalse(conditions.condition1(points, params));
+    }
+}
