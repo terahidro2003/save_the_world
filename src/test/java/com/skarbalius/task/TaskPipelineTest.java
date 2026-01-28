@@ -85,6 +85,40 @@ class TaskPipelineTest {
         assertEquals(15, context.pum.size());
         assertEquals(15, context.pum.get(0).size());
     }
+
+    @Test
+    void testPUMHandler_not_symmetric_lcm() {
+        TaskContext context = new TaskContext();
+
+        // Mock CMV data
+        context.cmv = new Vector<>(15);
+        for (int i = 0; i < 15; i++) context.cmv.add(false);
+        context.cmv.set(0, true);
+        context.cmv.set(1, false);
+
+        // Mock LCM matrix
+        context.lcm = new Vector<>(15);
+        for (int i = 0; i < 15; i++) {
+            Vector<BooleanOperator> row = new Vector<>(15);
+            for (int j = 0; j < 15; j++) row.add(BooleanOperator.NOTUSED);
+            context.lcm.add(row);
+        }
+
+        context.lcm.get(0).set(1, BooleanOperator.ANDD);
+        context.lcm.get(1).set(0, BooleanOperator.ORR);
+        context.lcm.get(0).set(2, BooleanOperator.ORR);
+        context.lcm.get(2).set(0, BooleanOperator.NOTUSED);
+
+        PUMHandler handler = new PUMHandler();
+        handler.handle(context);
+
+        // Verify Matrix Symmetry
+        for (int i = 0; i < 15; i++) {
+            for (int j = 0; j < 15; j++) {
+                assertEquals(context.pum.get(i).get(j), context.pum.get(j).get(i), "PUM must be symmetric at (" + i + "," + j + ")");
+            }
+        }
+    }
 }
 
 
