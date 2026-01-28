@@ -4,9 +4,6 @@ public class FinalDecisionHandler extends TaskHandler{
     @Override
     public void handle(TaskContext context) {
         context.decision = false;
-        System.out.println("FinalDecisionHandler");
-        super.next(context);
-        context.decision = false;
 
         if (!context.fuv.contains(false)) {
             context.decision = true;
