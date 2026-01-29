@@ -34,12 +34,13 @@ This peoject is licensed under the BSD 2-Clause License. See the License file fo
 
 ## Statement of Contributions
  
- Alberto Rayon: Helped in pair programming for the implementation of Launch Interceptor Conditions 0-2. Implemented LIC's 3 through 8 and wrote unit tests for each. After the conditions were met, worked on refactoring the LIC's. Also responsible for README file contents.
+ Alberto Rayon (GitHub: [AlbertoRayon](https://github.com/AlbertoRayon)): Helped in pair programming for the implementation of Launch Interceptor Conditions 0-2. Implemented LIC's 3 through 8 and wrote unit tests for each. After the conditions were met, worked on refactoring the LIC's. Also responsible for README file contents.
 
- Juozas Skarbalius: Set up the initial project structure, including Maven configuration, input parsing, chain of responsibility design pattern, and the README. Implemented task handling logic, and contributed to refactoring as well as the implementation and testing of PUM and LCM functionality.
+ Juozas Skarbalius (GitHub: [terahidro2003](https://github.com/terahidro2003)): Set up the initial project structure, including Maven configuration, input parsing, chain of responsibility design pattern, and the README. Implemented task handling logic, and contributed to refactoring as well as the implementation and testing of PUM and LCM functionality.
 
- Adrian Grund: Implemented Launch Interceptor Conditions 0, 1, 2, 9, 10, 11, 12, 13, and 14 and wrote unit tests for these conditions. Contributed to refactoring and cleanup efforts, reorganized condition-related files, improved test structure, and managed project merges. Also completed the way of working assessment and integration tests 2 & 3.
+ Adrian Grund (Github: [gruendlich](https://github.com/gruendlich)): Implemented Launch Interceptor Conditions 0, 1, 9, 10, 11, 12, 13, and 14 and wrote unit tests for these conditions. Contributed to refactoring and cleanup efforts, reorganized condition-related files, improved test structure, and managed project merges. Also completed the way of working assessment.
 
  Jintong Jang: Implemented the PUMHandler and its associated unit tests, contributing to the logic responsible for combining condition evaluations.
 
- Bahar Kimanos: Added the FUV and final decision handler tests and its respective tests. Refactrored the FUV handler to make some fixes. 
+ Bahar Kimanos (Github: [baharkim](https://github.com/baharkim)): Added the FUV and final decision handler tests and its respective tests. Refactrored the FUV handler to make some fixes. 
+   ```
