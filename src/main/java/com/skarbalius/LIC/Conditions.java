@@ -22,46 +22,46 @@ public class Conditions
     }
 
     public void computeCMV() {
-        cmv.add(condition0(this.points, this.parameters));
-        cmv.add(condition1(this.points, this.parameters));
-        cmv.add(condition2(this.points, this.parameters));
-        cmv.add(condition3(this.points, this.parameters));
-        cmv.add(condition4(this.points, this.parameters));
-        cmv.add(condition5(this.points, this.parameters));
-        cmv.add(condition6(this.points, this.parameters));
-        cmv.add(condition7(this.points, this.parameters));
-        cmv.add(condition8(this.points, this.parameters));
-        cmv.add(condition9(this.points, this.parameters));
-        cmv.add(condition10(this.points, this.parameters));
-        cmv.add(condition11(this.points, this.parameters));
-        cmv.add(condition12(this.points, this.parameters));
-        cmv.add(condition13(this.points, this.parameters));
-        cmv.add(condition14(this.points, this.parameters));
+        cmv.add(LIC0(this.points, this.parameters));
+        cmv.add(LIC1(this.points, this.parameters));
+        cmv.add(LIC2(this.points, this.parameters));
+        cmv.add(LIC3(this.points, this.parameters));
+        cmv.add(LIC4(this.points, this.parameters));
+        cmv.add(LIC5(this.points, this.parameters));
+        cmv.add(LIC6(this.points, this.parameters));
+        cmv.add(LIC7(this.points, this.parameters));
+        cmv.add(LIC8(this.points, this.parameters));
+        cmv.add(LIC9(this.points, this.parameters));
+        cmv.add(LIC10(this.points, this.parameters));
+        cmv.add(LIC11(this.points, this.parameters));
+        cmv.add(LIC12(this.points, this.parameters));
+        cmv.add(LIC13(this.points, this.parameters));
+        cmv.add(LIC14(this.points, this.parameters));
     }
 
     public Vector<Boolean> getCMV() {
         return cmv;
     }
 
-    public boolean condition0(ArrayList<Point> points, Parameters_T parameters) {
+    public boolean LIC0(ArrayList<Point> points, Parameters_T parameters) {
         return anyConsecutivePair(points, (p1, p2) -> p1.getDistance(p2) > parameters.LENGTH1);
     }
 
-    public boolean condition1(ArrayList<Point> points, Parameters_T parameters) {
+    public boolean LIC1(ArrayList<Point> points, Parameters_T parameters) {
         return anyConsecutiveTriple(points,
                                     (p1, p2, p3) -> anyOutsideRadiusFromCentroid(p1, p2, p3, parameters.RADIUS1));
     }
 
-    public boolean condition2(ArrayList<Point> points, Parameters_T parameters) {
+    public boolean LIC2(ArrayList<Point> points, Parameters_T parameters) {
         return anyConsecutiveTriple(points, (p1, p2, p3) -> angleNotWithinEpsilonOfPi(p1, p2, p3, parameters.EPSILON),
                                     (p1, p2, p3) -> p2.equals(p1) || p2.equals(p3));
     }
 
-    public boolean condition3(ArrayList<Point> points, Parameters_T parameters) {
+    public boolean LIC3(ArrayList<Point> points, Parameters_T parameters) {
         return anyConsecutiveTriple(points, (p1, p2, p3) -> Point.getAreaOfTriangle(p1, p2, p3) > parameters.AREA1);
     }
 
-    public boolean condition4(ArrayList<Point> points, Parameters_T parameters) {
+    public boolean LIC4(ArrayList<Point> points, Parameters_T parameters) {
         if (points.size() < 2 || parameters.Q_PTS < 2 || parameters.Q_PTS > points.size() || parameters.QUADS < 1 || parameters.QUADS > 3) {
             return false;
         }
@@ -82,7 +82,7 @@ public class Conditions
         return false;
     }
 
-    public boolean condition5(ArrayList<Point> points, Parameters_T parameters) {
+    public boolean LIC5(ArrayList<Point> points, Parameters_T parameters) {
         for (int i = 0; i < points.size() - 1; i++) {
             Point point1 = points.get(i);
             Point point2 = points.get(i + 1);
@@ -92,7 +92,7 @@ public class Conditions
         return false;
     }
 
-    public boolean condition6(ArrayList<Point> points, Parameters_T parameters) {
+    public boolean LIC6(ArrayList<Point> points, Parameters_T parameters) {
 
         if (points.size() < 3) {return false;}
 
@@ -124,32 +124,32 @@ public class Conditions
         return false;
     }
 
-    public boolean condition7(ArrayList<Point> points, Parameters_T parameters) {
+    public boolean LIC7(ArrayList<Point> points, Parameters_T parameters) {
         return anySeparatedPair(points, parameters.K_PTS, (p1, p2) -> p1.getDistance(p2) > parameters.LENGTH1);
     }
 
-    public boolean condition8(ArrayList<Point> points, Parameters_T parameters) {
+    public boolean LIC8(ArrayList<Point> points, Parameters_T parameters) {
         return anySeparatedTriple(points, parameters.A_PTS, parameters.B_PTS,
                                   (p1, p2, p3) -> anyOutsideRadiusFromCentroid(p1, p2, p3, parameters.RADIUS1));
     }
 
 
-    public boolean condition9(ArrayList<Point> points, Parameters_T parameters) {
+    public boolean LIC9(ArrayList<Point> points, Parameters_T parameters) {
         return anySeparatedTriple(points, parameters.C_PTS, parameters.D_PTS,
                                   (p1, p2, p3) -> angleNotWithinEpsilonOfPi(p1, p2, p3, parameters.EPSILON),
                                   (v1, v2, v3) -> v2.equals(v1) || v2.equals(v3));
     }
 
-    public boolean condition10(ArrayList<Point> points, Parameters_T parameters) {
+    public boolean LIC10(ArrayList<Point> points, Parameters_T parameters) {
         return anySeparatedTriple(points, parameters.E_PTS, parameters.F_PTS,
                                   (v1, v2, v3) -> Point.getAreaOfTriangle(v1, v2, v3) > parameters.AREA1);
     }
 
-    public boolean condition11(ArrayList<Point> points, Parameters_T parameters) {
+    public boolean LIC11(ArrayList<Point> points, Parameters_T parameters) {
         return anySeparatedPair(points, parameters.G_PTS, (p1, p2) -> p2.x - p1.x < 0);
     }
 
-    public boolean condition12(ArrayList<Point> points, Parameters_T parameters) {
+    public boolean LIC12(ArrayList<Point> points, Parameters_T parameters) {
         int interv_pts = parameters.K_PTS;
         if (points.size() < 3) {
             return false;
@@ -172,13 +172,13 @@ public class Conditions
         return found_l1 && found_l2;
     }
 
-    public boolean condition13(ArrayList<Point> points, Parameters_T parameters) {
+    public boolean LIC13(ArrayList<Point> points, Parameters_T parameters) {
         var triples = separatedTriples(points, parameters.A_PTS, parameters.B_PTS);
         return existsBoth(triples, t -> anyOutsideRadiusFromCentroid(t.a(), t.b(), t.c(), parameters.RADIUS1),
                           t -> allWithinRadiusFromCentroid(t.a(), t.b(), t.c(), parameters.RADIUS2));
     }
 
-    public boolean condition14(ArrayList<Point> points, Parameters_T parameters) {
+    public boolean LIC14(ArrayList<Point> points, Parameters_T parameters) {
         var triples = separatedTriples(points, parameters.E_PTS, parameters.F_PTS);
         return existsBoth(triples, t -> Point.getAreaOfTriangle(t.a(), t.b(), t.c()) > parameters.AREA1,
                           t -> Point.getAreaOfTriangle(t.a(), t.b(), t.c()) < parameters.AREA2);

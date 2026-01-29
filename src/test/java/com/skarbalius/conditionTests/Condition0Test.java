@@ -21,7 +21,7 @@ public class Condition0Test
         Parameters_T params = new TestParameters();
         Conditions conditions = new Conditions(points, params);
 
-        assertTrue(conditions.condition0(points, params));
+        assertTrue(conditions.LIC0(points, params));
     }
 
     @Test
@@ -34,7 +34,7 @@ public class Condition0Test
         Parameters_T params = new TestParameters();
         Conditions conditions = new Conditions(points, params);
 
-        assertFalse(conditions.condition0(points, params));
+        assertFalse(conditions.LIC0(points, params));
     }
 
     @Test
@@ -46,7 +46,7 @@ public class Condition0Test
         Parameters_T params = new TestParameters(); // LENGTH1 == 5.0f
         Conditions conditions = new Conditions(points, params);
 
-        assertFalse(conditions.condition0(points, params));
+        assertFalse(conditions.LIC0(points, params));
     }
 
     @Test
@@ -57,6 +57,6 @@ public class Condition0Test
         Parameters_T params = new TestParameters();
         Conditions conditions = new Conditions(points, params);
 
-        assertFalse(conditions.condition0(points, params));
+        assertFalse(conditions.LIC0(points, params));
     }
 }

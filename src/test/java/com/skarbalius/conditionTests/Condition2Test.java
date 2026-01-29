@@ -22,7 +22,7 @@ public class Condition2Test
         Parameters_T params = new TestParameters();
         Conditions conditions = new Conditions(points, params);
 
-        assertTrue(conditions.condition2(points, params));
+        assertTrue(conditions.LIC2(points, params));
     }
 
     @Test
@@ -35,7 +35,7 @@ public class Condition2Test
         Parameters_T params = new TestParameters();
         Conditions conditions = new Conditions(points, params);
 
-        assertFalse(conditions.condition2(points, params));
+        assertFalse(conditions.LIC2(points, params));
     }
 
     @Test
@@ -49,7 +49,7 @@ public class Condition2Test
         points.add(new Point(Math.cos(angle), Math.sin(angle)));
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition2(points, params));
+        assertFalse(conditions.LIC2(points, params));
     }
 
 
@@ -63,6 +63,6 @@ public class Condition2Test
         Parameters_T params = new TestParameters();
         Conditions conditions = new Conditions(points, params);
 
-        assertFalse(conditions.condition2(points, params));
+        assertFalse(conditions.LIC2(points, params));
     }
 }

@@ -23,7 +23,7 @@ public class Condition7Test
         params.LENGTH1 = 3.0;
 
         Conditions conditions = new Conditions(points, params);
-        assertTrue(conditions.condition7(points, params));
+        assertTrue(conditions.LIC7(points, params));
     }
 
     @Test
@@ -38,7 +38,7 @@ public class Condition7Test
         params.LENGTH1 = 4.0;
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition7(points, params));
+        assertFalse(conditions.LIC7(points, params));
     }
 
     @Test
@@ -53,7 +53,7 @@ public class Condition7Test
         params.LENGTH1 = 5.0;
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition7(points, params));
+        assertFalse(conditions.LIC7(points, params));
     }
 
     @Test
@@ -69,7 +69,7 @@ public class Condition7Test
         params.LENGTH1 = 5.0;
 
         Conditions conditions = new Conditions(points, params);
-        assertTrue(conditions.condition7(points, params));
+        assertTrue(conditions.LIC7(points, params));
     }
 
     @Test
@@ -85,6 +85,6 @@ public class Condition7Test
         params.LENGTH1 = 5.0;
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition7(points, params));
+        assertFalse(conditions.LIC7(points, params));
     }
 }

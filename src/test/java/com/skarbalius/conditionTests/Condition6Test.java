@@ -23,7 +23,7 @@ public class Condition6Test {
         params.DIST = 2.0;
 
         Conditions conditions = new Conditions(points, params);
-        assertTrue(conditions.condition6(points, params));
+        assertTrue(conditions.LIC6(points, params));
     }
 
     @Test
@@ -38,7 +38,7 @@ public class Condition6Test {
         params.DIST = 2.0;
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition6(points, params));
+        assertFalse(conditions.LIC6(points, params));
     }
 
     @Test
@@ -53,7 +53,7 @@ public class Condition6Test {
         params.DIST = 3.0;
 
         Conditions conditions = new Conditions(points, params);
-        assertTrue(conditions.condition6(points, params));
+        assertTrue(conditions.LIC6(points, params));
     }
 
     @Test
@@ -68,7 +68,7 @@ public class Condition6Test {
         params.DIST = 3.0;
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition6(points, params));
+        assertFalse(conditions.LIC6(points, params));
     }
 
     @Test
@@ -85,7 +85,7 @@ public class Condition6Test {
         params.DIST = 2.0;
 
         Conditions conditions = new Conditions(points, params);
-        assertTrue(conditions.condition6(points, params));
+        assertTrue(conditions.LIC6(points, params));
     }
 
     @Test
@@ -99,6 +99,6 @@ public class Condition6Test {
         params.DIST = 1.0;
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition6(points, params));
+        assertFalse(conditions.LIC6(points, params));
     }
 }

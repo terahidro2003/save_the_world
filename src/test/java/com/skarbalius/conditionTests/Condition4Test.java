@@ -25,7 +25,7 @@ public class Condition4Test
       
 
         Conditions conditions = new Conditions(points, params);
-        assertTrue(conditions.condition4(points, params));
+        assertTrue(conditions.LIC4(points, params));
     }
 
     @Test
@@ -41,7 +41,7 @@ public class Condition4Test
         params.QUADS = 2;
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition4(points, params));
+        assertFalse(conditions.LIC4(points, params));
     }
 
     @Test
@@ -57,7 +57,7 @@ public class Condition4Test
         params.QUADS = 3;
 
         Conditions conditions = new Conditions(points, params);
-        assertTrue(conditions.condition4(points, params));
+        assertTrue(conditions.LIC4(points, params));
     }
 
     @Test
@@ -74,7 +74,7 @@ public class Condition4Test
         params.QUADS = 2;
 
         Conditions conditions = new Conditions(points, params);
-        assertTrue(conditions.condition4(points, params));
+        assertTrue(conditions.LIC4(points, params));
     }
 
     @Test
@@ -90,7 +90,7 @@ public class Condition4Test
         params.QUADS = 1;
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition4(points, params));
+        assertFalse(conditions.LIC4(points, params));
     }
 
     @Test
@@ -104,6 +104,6 @@ public class Condition4Test
         params.QUADS = 1;
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition4(points, params));
+        assertFalse(conditions.LIC4(points, params));
     }
 }

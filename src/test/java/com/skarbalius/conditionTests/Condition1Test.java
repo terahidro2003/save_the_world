@@ -24,7 +24,7 @@ public class Condition1Test
         params.RADIUS1 = 5.0f; // smaller than required radius of ~5.77
 
         Conditions conditions = new Conditions(points, params);
-        assertTrue(conditions.condition1(points, params));
+        assertTrue(conditions.LIC1(points, params));
     }
 
     @Test
@@ -37,7 +37,7 @@ public class Condition1Test
         Parameters_T params = new TestParameters();
         Conditions conditions = new Conditions(points, params);
 
-        assertFalse(conditions.condition1(points, params));
+        assertFalse(conditions.LIC1(points, params));
     }
 
     @Test
@@ -52,7 +52,7 @@ public class Condition1Test
         params.RADIUS1 = 5.0f; // exactly the circumradius of the three points
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition1(points, params));
+        assertFalse(conditions.LIC1(points, params));
     }
 
     @Test
@@ -64,6 +64,6 @@ public class Condition1Test
         Parameters_T params = new TestParameters();
         Conditions conditions = new Conditions(points, params);
 
-        assertFalse(conditions.condition1(points, params));
+        assertFalse(conditions.LIC1(points, params));
     }
 }

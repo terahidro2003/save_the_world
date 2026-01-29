@@ -20,7 +20,7 @@ public class Condition5Test
         Parameters_T params = new TestParameters();
 
         Conditions conditions = new Conditions(points, params);
-        assertTrue(conditions.condition5(points, params));
+        assertTrue(conditions.LIC5(points, params));
     }
 
     @Test
@@ -34,7 +34,7 @@ public class Condition5Test
         Parameters_T params = new TestParameters();
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition5(points, params));
+        assertFalse(conditions.LIC5(points, params));
     }
 
     @Test
@@ -46,7 +46,7 @@ public class Condition5Test
         Parameters_T params = new TestParameters();
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition5(points, params));
+        assertFalse(conditions.LIC5(points, params));
     }
 
     @Test
@@ -60,7 +60,7 @@ public class Condition5Test
         Parameters_T params = new TestParameters();
 
         Conditions conditions = new Conditions(points, params);
-        assertTrue(conditions.condition5(points, params));
+        assertTrue(conditions.LIC5(points, params));
     }
 
     @Test
@@ -71,6 +71,6 @@ public class Condition5Test
         Parameters_T params = new TestParameters();
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition5(points, params));
+        assertFalse(conditions.LIC5(points, params));
     }
 }

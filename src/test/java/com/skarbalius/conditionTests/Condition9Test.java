@@ -28,7 +28,7 @@ public class Condition9Test
         params.EPSILON = 0.1;
 
         Conditions conditions = new Conditions(points, params);
-        assertTrue(conditions.condition9(points, params));
+        assertTrue(conditions.LIC9(points, params));
     }
 
     @Test
@@ -46,7 +46,7 @@ public class Condition9Test
         params.EPSILON = 0.1;
 
         Conditions conditions = new Conditions(points, params);
-        assertTrue(conditions.condition9(points, params));
+        assertTrue(conditions.LIC9(points, params));
     }
 
     @Test
@@ -64,7 +64,7 @@ public class Condition9Test
         params.EPSILON = 0.5;
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition9(points, params));
+        assertFalse(conditions.LIC9(points, params));
     }
 
     @Test
@@ -82,7 +82,7 @@ public class Condition9Test
         params.EPSILON = 0.1;
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition9(points, params));
+        assertFalse(conditions.LIC9(points, params));
     }
 
     @Test
@@ -99,7 +99,7 @@ public class Condition9Test
         params.EPSILON = 0.1;
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition9(points, params));
+        assertFalse(conditions.LIC9(points, params));
     }
 
     @Test
@@ -117,7 +117,7 @@ public class Condition9Test
         params.EPSILON = 0.1;
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition9(points, params));
+        assertFalse(conditions.LIC9(points, params));
     }
 
 }

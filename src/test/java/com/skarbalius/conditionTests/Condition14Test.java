@@ -29,7 +29,7 @@ public class Condition14Test
         params.AREA2 = 10.0;
 
         Conditions conditions = new Conditions(points, params);
-        assertTrue(conditions.condition14(points, params));
+        assertTrue(conditions.LIC14(points, params));
     }
 
     @Test
@@ -49,7 +49,7 @@ public class Condition14Test
 
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition14(points, params));
+        assertFalse(conditions.LIC14(points, params));
     }
 
     @Test
@@ -68,7 +68,7 @@ public class Condition14Test
         params.AREA2 = 10.0;
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition14(points, params));
+        assertFalse(conditions.LIC14(points, params));
     }
 
     @Test
@@ -86,7 +86,7 @@ public class Condition14Test
         params.AREA2 = 100.0;
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition14(points, params));
+        assertFalse(conditions.LIC14(points, params));
     }
 
     @Test
@@ -105,7 +105,7 @@ public class Condition14Test
         params.AREA2 = -1.0;
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition14(points, params));
+        assertFalse(conditions.LIC14(points, params));
     }
 
 }

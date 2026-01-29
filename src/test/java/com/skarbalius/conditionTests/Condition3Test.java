@@ -23,7 +23,7 @@ public class Condition3Test
         params.AREA1 = 40.0;
 
         Conditions conditions = new Conditions(points, params);
-        assertTrue(conditions.condition3(points, params));
+        assertTrue(conditions.LIC3(points, params));
     }
 
     @Test
@@ -37,7 +37,7 @@ public class Condition3Test
         params.AREA1 = 5.0;
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition3(points, params));
+        assertFalse(conditions.LIC3(points, params));
     }
 
     @Test
@@ -51,6 +51,6 @@ public class Condition3Test
         params.AREA1 = 0.1; 
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition3(points, params));
+        assertFalse(conditions.LIC3(points, params));
     }
 }
