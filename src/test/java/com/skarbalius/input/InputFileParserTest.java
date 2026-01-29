@@ -8,13 +8,13 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.util.Vector;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class InputFileParserTest {
 
     private static final InputFileParser PARSER = new InputFileParser();
     private static final File resourcesDirectory = new File("src/test/resources");
+    private static final File malformedInputFile = new File(resourcesDirectory.getAbsolutePath() + "/malformed.json");
 
     static {
         if (!resourcesDirectory.exists()) {
@@ -55,5 +55,16 @@ class InputFileParserTest {
         assertTrue(input.parameters().equals(result.parameters()));
         assertEquals(input.PUV(), result.PUV());
         assertEquals(input.LCM(), result.LCM());
+    }
+
+    @Test
+    void write_malformed_input() {
+        assertThrows(RuntimeException.class, () -> PARSER.readInputFile(malformedInputFile));
+    }
+
+    @Test
+    void read_nonexistent_file() {
+        File nonexistentFile = new File(resourcesDirectory.getAbsolutePath() + "/nonexistent.json");
+        assertThrows(RuntimeException.class, () -> PARSER.readInputFile(nonexistentFile));
     }
 }
