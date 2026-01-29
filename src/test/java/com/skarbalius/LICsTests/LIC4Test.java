@@ -1,4 +1,4 @@
-package com.skarbalius.conditionTests;
+package com.skarbalius.LICsTests;
 
 import com.skarbalius.LIC.Conditions;
 import com.skarbalius.LIC.Parameters_T;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class Condition4Test
+public class LIC4Test
 {
     @Test
     void testCondition4_MoreThanQUADSQuadrants_ReturnsTrue() {

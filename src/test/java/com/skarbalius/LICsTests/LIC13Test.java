@@ -1,4 +1,4 @@
-package com.skarbalius.conditionTests;
+package com.skarbalius.LICsTests;
 
 import com.skarbalius.LIC.Conditions;
 import com.skarbalius.LIC.Parameters_T;
@@ -11,7 +11,7 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class Condition13Test
+public class LIC13Test
 {
     @Test
     void testCondition13_BothConditionsMet_ReturnsTrue() {

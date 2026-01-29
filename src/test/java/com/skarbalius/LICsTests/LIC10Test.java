@@ -1,4 +1,4 @@
-package com.skarbalius.conditionTests;
+package com.skarbalius.LICsTests;
 
 import com.skarbalius.LIC.Conditions;
 import com.skarbalius.LIC.Parameters_T;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class Condition10Test
+public class LIC10Test
 {
     @Test
     void testCondition10_TriangleAreaExceedsThreshold_ReturnsTrue() {

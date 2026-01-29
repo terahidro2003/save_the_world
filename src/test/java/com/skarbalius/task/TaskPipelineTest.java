@@ -1,7 +1,8 @@
 package com.skarbalius.task;
 
 import com.skarbalius.LIC.Point;
-import com.skarbalius.conditionTests.TestParameters;
+import com.skarbalius.LICsTests.TestParameters;
+
 import org.junit.jupiter.api.Test;
 import com.skarbalius.input.BooleanOperator;
 import java.util.Vector;
