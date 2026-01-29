@@ -1,6 +1,6 @@
 package com.skarbalius.LICsTests;
 
-import com.skarbalius.LIC.Conditions;
+import com.skarbalius.LIC.LICs;
 import com.skarbalius.LIC.Parameters_T;
 import com.skarbalius.LIC.Point;
 import org.junit.jupiter.api.Test;
@@ -24,7 +24,7 @@ public class LIC4Test
         params.QUADS = 3;
       
 
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
         assertTrue(conditions.LIC4(points, params));
     }
 
@@ -40,7 +40,7 @@ public class LIC4Test
         params.Q_PTS = 4;
         params.QUADS = 2;
 
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
         assertFalse(conditions.LIC4(points, params));
     }
 
@@ -56,7 +56,7 @@ public class LIC4Test
         params.Q_PTS = 4;
         params.QUADS = 3;
 
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
         assertTrue(conditions.LIC4(points, params));
     }
 
@@ -73,7 +73,7 @@ public class LIC4Test
         params.Q_PTS = 4;
         params.QUADS = 2;
 
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
         assertTrue(conditions.LIC4(points, params));
     }
 
@@ -89,7 +89,7 @@ public class LIC4Test
         params.Q_PTS = 4;
         params.QUADS = 1;
 
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
         assertFalse(conditions.LIC4(points, params));
     }
 
@@ -103,7 +103,7 @@ public class LIC4Test
         params.Q_PTS = 3;
         params.QUADS = 1;
 
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
         assertFalse(conditions.LIC4(points, params));
     }
 }

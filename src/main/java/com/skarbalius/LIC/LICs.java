@@ -7,14 +7,14 @@ import java.util.Vector;
 import static com.skarbalius.LIC.GeometryPredicates.*;
 import static com.skarbalius.LIC.PointWindows.*;
 
-public class Conditions
+public class LICs
 {
 
     private final Vector<Boolean> cmv;
     private final ArrayList<Point> points;
     private final Parameters_T parameters;
 
-    public Conditions(ArrayList<Point> points, Parameters_T parameters) {
+    public LICs(ArrayList<Point> points, Parameters_T parameters) {
         this.points = points;
         this.parameters = parameters;
         cmv = new Vector<>(15);
@@ -94,7 +94,7 @@ public class Conditions
 
     public boolean LIC6(ArrayList<Point> points, Parameters_T parameters) {
 
-        if (points.size() < 3) {return false;}
+        if (points.size() < 3 || parameters.N_PTS < 3 || parameters.N_PTS > points.size()) {return false;}
 
         for (int i = parameters.N_PTS; i <= points.size(); i++) {
 
@@ -150,6 +150,9 @@ public class Conditions
     }
 
     public boolean LIC12(ArrayList<Point> points, Parameters_T parameters) {
+        if (points.size() < 3 || parameters.K_PTS < 1) {
+            return false;
+}
         int interv_pts = parameters.K_PTS;
         if (points.size() < 3) {
             return false;

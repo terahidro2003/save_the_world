@@ -1,6 +1,6 @@
 package com.skarbalius.LICsTests;
 
-import com.skarbalius.LIC.Conditions;
+import com.skarbalius.LIC.LICs;
 import com.skarbalius.LIC.Parameters_T;
 import com.skarbalius.LIC.Point;
 import org.junit.jupiter.api.Test;
@@ -23,7 +23,7 @@ public class LIC1Test
         Parameters_T params = new TestParameters();
         params.RADIUS1 = 5.0f; // smaller than required radius of ~5.77
 
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
         assertTrue(conditions.LIC1(points, params));
     }
 
@@ -35,7 +35,7 @@ public class LIC1Test
         points.add(new Point(0.5f, 0.5f));
 
         Parameters_T params = new TestParameters();
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
 
         assertFalse(conditions.LIC1(points, params));
     }
@@ -51,7 +51,7 @@ public class LIC1Test
         Parameters_T params = new TestParameters();
         params.RADIUS1 = 5.0f; // exactly the circumradius of the three points
 
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
         assertFalse(conditions.LIC1(points, params));
     }
 
@@ -62,7 +62,7 @@ public class LIC1Test
         points.add(new Point(1.0f, 1.0f)); // only two points, cannot form a triple
 
         Parameters_T params = new TestParameters();
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
 
         assertFalse(conditions.LIC1(points, params));
     }

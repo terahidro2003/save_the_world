@@ -1,0 +1,33 @@
+{
+  "NUMPOINTS" : 2,
+  "points" : [ {
+    "x" : 143098.509,
+    "y" : 855368.983
+  }, {
+    "x" : -486139.466,
+    "y" : -978699.884
+  } ],
+  "parameters" : {
+    "LENGTH1" : 5.0,
+    "RADIUS1" : 3.0,
+    "EPSILON" : 0.10000000149011612,
+    "AREA1" : 20.0,
+    "Q_PTS" : 2,
+    "DIST" : 0.0,
+    "QUADS" : 0,
+    "N_PTS" : 3,
+    "K_PTS" : 1,
+    "A_PTS" : 1,
+    "B_PTS" : 1,
+    "C_PTS" : 1,
+    "D_PTS" : 1,
+    "E_PTS" : 1,
+    "F_PTS" : 1,
+    "G_PTS" : 1,
+    "LENGTH2" : 10.0,
+    "RADIUS2" : 8.0,
+    "AREA2" : 50.0
+  },
+  "PUV" : [ true, false ],
+  "LCM" : [ [ "ANDD", "ORR" ], [ "NOTUSED", "ANDD" ] ]
+}

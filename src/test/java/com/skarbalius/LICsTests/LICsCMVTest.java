@@ -1,6 +1,6 @@
 package com.skarbalius.LICsTests;
 
-import com.skarbalius.LIC.Conditions;
+import com.skarbalius.LIC.LICs;
 import com.skarbalius.LIC.Point;
 import org.junit.jupiter.api.Test;
 
@@ -22,7 +22,7 @@ public class LICsCMVTest {
         p.QUADS = 1;
         p.DIST = 1.0;
 
-        Conditions conditions = new Conditions(points, p);
+        LICs conditions = new LICs(points, p);
 
         Vector<Boolean> cmv1 = conditions.getCMV();
         assertEquals(15, cmv1.size(), "CMV must contain exactly 15 values");
@@ -45,7 +45,7 @@ public class LICsCMVTest {
         p.QUADS = 1;
         p.DIST = 2.0;
 
-        Conditions c = new Conditions(points, p);
+        LICs c = new LICs(points, p);
         Vector<Boolean> cmv = c.getCMV();
 
         assertEquals(15, cmv.size());
@@ -78,7 +78,7 @@ public class LICsCMVTest {
         p.QUADS = 1;
         p.DIST = 1.0;
 
-        Conditions c = new Conditions(points, p);
+        LICs c = new LICs(points, p);
         Vector<Boolean> cmv = c.getCMV();
 
         assertEquals(15, cmv.size());

@@ -1,6 +1,6 @@
 package com.skarbalius.LICsTests;
 
-import com.skarbalius.LIC.Conditions;
+import com.skarbalius.LIC.LICs;
 import com.skarbalius.LIC.Parameters_T;
 import com.skarbalius.LIC.Point;
 import org.junit.jupiter.api.Test;
@@ -19,7 +19,7 @@ public class LIC0Test
         points.add(new Point(15, 0));
 
         Parameters_T params = new TestParameters();
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
 
         assertTrue(conditions.LIC0(points, params));
     }
@@ -32,7 +32,7 @@ public class LIC0Test
         points.add(new Point(4, 0)); // distance = 2
 
         Parameters_T params = new TestParameters();
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
 
         assertFalse(conditions.LIC0(points, params));
     }
@@ -44,7 +44,7 @@ public class LIC0Test
         points.add(new Point(5, 0)); // distance = 5 equals TestParameters.LENGTH1
 
         Parameters_T params = new TestParameters(); // LENGTH1 == 5.0f
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
 
         assertFalse(conditions.LIC0(points, params));
     }
@@ -55,7 +55,7 @@ public class LIC0Test
         points.add(new Point(0, 0));
 
         Parameters_T params = new TestParameters();
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
 
         assertFalse(conditions.LIC0(points, params));
     }

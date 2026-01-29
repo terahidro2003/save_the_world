@@ -1,6 +1,6 @@
 package com.skarbalius.LICsTests;
 
-import com.skarbalius.LIC.Conditions;
+import com.skarbalius.LIC.LICs;
 import com.skarbalius.LIC.Parameters_T;
 import com.skarbalius.LIC.Point;
 import org.junit.jupiter.api.Test;
@@ -28,7 +28,7 @@ public class LIC14Test
         params.AREA1 = 1.0;
         params.AREA2 = 10.0;
 
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
         assertTrue(conditions.LIC14(points, params));
     }
 
@@ -48,7 +48,7 @@ public class LIC14Test
         params.AREA2 = 0.1;  // Too small, no triangle can be less than this
 
 
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
         assertFalse(conditions.LIC14(points, params));
     }
 
@@ -67,7 +67,7 @@ public class LIC14Test
         params.AREA1 = 100.0;  // Too large, no triangle can be greater than this
         params.AREA2 = 10.0;
 
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
         assertFalse(conditions.LIC14(points, params));
     }
 
@@ -85,7 +85,7 @@ public class LIC14Test
         params.AREA1 = 1.0;
         params.AREA2 = 100.0;
 
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
         assertFalse(conditions.LIC14(points, params));
     }
 
@@ -104,7 +104,7 @@ public class LIC14Test
         params.AREA1 = 1.0;
         params.AREA2 = -1.0;
 
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
         assertFalse(conditions.LIC14(points, params));
     }
 

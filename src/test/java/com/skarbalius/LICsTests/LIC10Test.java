@@ -1,6 +1,6 @@
 package com.skarbalius.LICsTests;
 
-import com.skarbalius.LIC.Conditions;
+import com.skarbalius.LIC.LICs;
 import com.skarbalius.LIC.Parameters_T;
 import com.skarbalius.LIC.Point;
 import org.junit.jupiter.api.Test;
@@ -26,7 +26,7 @@ public class LIC10Test
         params.F_PTS = 1;
         params.AREA1 = 5.0f; // Triangle area is 12.5
 
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
         assertTrue(conditions.LIC10(points, params));
     }
 
@@ -44,7 +44,7 @@ public class LIC10Test
         params.F_PTS = 1;
         params.AREA1 = 10.0f;
 
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
         assertFalse(conditions.LIC10(points, params));
     }
 
@@ -60,7 +60,7 @@ public class LIC10Test
         params.F_PTS = 1;
         params.AREA1 = 0.1f;
 
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
         assertFalse(conditions.LIC10(points, params));
     }
 }

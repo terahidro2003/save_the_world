@@ -1,6 +1,6 @@
 package com.skarbalius.LICsTests;
 
-import com.skarbalius.LIC.Conditions;
+import com.skarbalius.LIC.LICs;
 import com.skarbalius.LIC.Parameters_T;
 import com.skarbalius.LIC.Point;
 import org.junit.jupiter.api.Test;
@@ -20,7 +20,7 @@ public class LIC2Test
         points.add(new Point(2, 1)); // forms acute angle
 
         Parameters_T params = new TestParameters();
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
 
         assertTrue(conditions.LIC2(points, params));
     }
@@ -33,7 +33,7 @@ public class LIC2Test
         points.add(new Point(2, 0)); // collinear, angle = PI
 
         Parameters_T params = new TestParameters();
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
 
         assertFalse(conditions.LIC2(points, params));
     }
@@ -48,7 +48,7 @@ public class LIC2Test
         points.add(new Point(0.0, 0.0));
         points.add(new Point(Math.cos(angle), Math.sin(angle)));
 
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
         assertFalse(conditions.LIC2(points, params));
     }
 
@@ -61,7 +61,7 @@ public class LIC2Test
         points.add(new Point(1.0f, 1.0f)); // third point
 
         Parameters_T params = new TestParameters();
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
 
         assertFalse(conditions.LIC2(points, params));
     }

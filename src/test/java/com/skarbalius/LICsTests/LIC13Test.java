@@ -1,6 +1,6 @@
 package com.skarbalius.LICsTests;
 
-import com.skarbalius.LIC.Conditions;
+import com.skarbalius.LIC.LICs;
 import com.skarbalius.LIC.Parameters_T;
 import com.skarbalius.LIC.Point;
 import org.junit.jupiter.api.Test;
@@ -27,7 +27,7 @@ public class LIC13Test
         params.B_PTS = 1;
         params.RADIUS1 = 0.5;
         params.RADIUS2 = 10.0;
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
         assertTrue(conditions.LIC13(points, params));
     }
 
@@ -46,7 +46,7 @@ public class LIC13Test
         params.RADIUS1 = 0.5;
         params.RADIUS2 = 0.1; // Too small
 
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
         assertFalse(conditions.LIC13(points, params));
     }
 
@@ -64,7 +64,7 @@ public class LIC13Test
         params.RADIUS1 = 1.0;
         params.RADIUS2 = 10.0;
 
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
         assertFalse(conditions.LIC13(points, params));
     }
 }

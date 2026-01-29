@@ -1,0 +1,65 @@
+[33m4443f0c[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mLIC-edits-temporary[m[33m, [m[1;31morigin/LIC-edits[m[33m, [m[1;32mLIC-edits[m[33m)[m HEAD@{0}: checkout: moving from LIC-edits to LIC-edits-temporary
+[33m4443f0c[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mLIC-edits-temporary[m[33m, [m[1;31morigin/LIC-edits[m[33m, [m[1;32mLIC-edits[m[33m)[m HEAD@{1}: commit: refactor: more LIC renaming #41
+[33mfe8bcac[m HEAD@{2}: commit: refactor: updated LIC naming convention #41
+[33m5c8b174[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{3}: reset: moving to origin/main
+[33mbbb3b83[m[33m ([m[1;32mmain[m[33m)[m HEAD@{4}: checkout: moving from main to LIC-edits
+[33mbbb3b83[m[33m ([m[1;32mmain[m[33m)[m HEAD@{5}: pull origin main: Fast-forward
+[33m9dd378f[m HEAD@{6}: checkout: moving from main to main
+[33m9dd378f[m HEAD@{7}: pull origin main: Fast-forward
+[33m8e7c7c5[m HEAD@{8}: pull origin main: Fast-forward
+[33m86a8ade[m HEAD@{9}: checkout: moving from README to main
+[33m7c9d23a[m[33m ([m[1;31morigin/README[m[33m)[m HEAD@{10}: checkout: moving from main to README
+[33m86a8ade[m HEAD@{11}: checkout: moving from README to main
+[33m7c9d23a[m[33m ([m[1;31morigin/README[m[33m)[m HEAD@{12}: commit: doc: final contributions update. Closes #31
+[33m6ec83b1[m HEAD@{13}: checkout: moving from main to README
+[33m86a8ade[m HEAD@{14}: pull origin main: Fast-forward
+[33maaff938[m HEAD@{15}: checkout: moving from README to main
+[33m6ec83b1[m HEAD@{16}: commit: doc: Updated contributions and structure for issue #31
+[33m777354e[m HEAD@{17}: commit: docs: finalize README for issue #31
+[33maaff938[m HEAD@{18}: checkout: moving from main to README
+[33maaff938[m HEAD@{19}: pull: Fast-forward
+[33mb94ce55[m HEAD@{20}: checkout: moving from feature/LICs to main
+[33m6ed0cb5[m[33m ([m[1;31morigin/feature/LICs[m[33m, [m[1;32mfeature/LICs[m[33m)[m HEAD@{21}: pull origin feature/LICs: Fast-forward
+[33md9fc605[m HEAD@{22}: checkout: moving from feature/LICs-Refactor to feature/LICs
+[33m6ed0cb5[m[33m ([m[1;31morigin/feature/LICs[m[33m, [m[1;32mfeature/LICs[m[33m)[m HEAD@{23}: commit: refactor: condition 4 and 6, issue #2
+[33md9fc605[m HEAD@{24}: checkout: moving from feature/LICs to feature/LICs-Refactor
+[33md9fc605[m HEAD@{25}: checkout: moving from feature/LICs-Condition8 to feature/LICs
+[33md9fc605[m HEAD@{26}: checkout: moving from feature/LICs to feature/LICs-Condition8
+[33md9fc605[m HEAD@{27}: merge feature/LICs-Condition8: Fast-forward
+[33m5d24311[m HEAD@{28}: checkout: moving from feature/LICs-Condition8 to feature/LICs
+[33md9fc605[m HEAD@{29}: commit: test: Added tests for Condition 8
+[33m38f8600[m HEAD@{30}: commit: feat: Implemented Condition 8
+[33m5d24311[m HEAD@{31}: checkout: moving from feature/LICs to feature/LICs-Condition8
+[33m5d24311[m HEAD@{32}: merge feature/LICs-Condition7: Fast-forward
+[33m035d215[m HEAD@{33}: checkout: moving from feature/LICs-Condition7 to feature/LICs
+[33m5d24311[m HEAD@{34}: commit: test: Added tests for Condition 7
+[33m6b38649[m HEAD@{35}: commit: feat: Implemented Condition 7
+[33m035d215[m HEAD@{36}: checkout: moving from feature/LICs to feature/LICs-Condition7
+[33m035d215[m HEAD@{37}: checkout: moving from feature/LICs to feature/LICs
+[33m035d215[m HEAD@{38}: merge origin/feature/LICs: Fast-forward
+[33mf278e97[m HEAD@{39}: checkout: moving from feature/LICs to feature/LICs
+[33mf278e97[m HEAD@{40}: merge feature/LICs-Condition6: Fast-forward
+[33mc78e25d[m HEAD@{41}: checkout: moving from feature/LICs-Condition6 to feature/LICs
+[33mf278e97[m HEAD@{42}: commit: test: Added tests for Condition 6
+[33m4688d20[m HEAD@{43}: commit: feat: Implemented Condition 6
+[33mc78e25d[m HEAD@{44}: checkout: moving from feature/LICs to feature/LICs-Condition6
+[33mc78e25d[m HEAD@{45}: merge feature/LICs-Condition5: Fast-forward
+[33m789aa44[m HEAD@{46}: checkout: moving from feature/LICs-Condition5 to feature/LICs
+[33mc78e25d[m HEAD@{47}: commit: test: Added tests for Condition 5
+[33m5fd5d16[m HEAD@{48}: commit: feat: Implemented Condition 5
+[33m789aa44[m HEAD@{49}: checkout: moving from feature/LICs to feature/LICs-Condition5
+[33m789aa44[m HEAD@{50}: merge feature/LIC-Condition4: Fast-forward
+[33m502c708[m HEAD@{51}: checkout: moving from feature/LIC-Condition4 to feature/LICs
+[33m789aa44[m HEAD@{52}: commit: test: Add tests for condition 4
+[33m64165f2[m HEAD@{53}: commit: feat: Implement Condition 4
+[33m502c708[m HEAD@{54}: reset: moving to HEAD
+[33m502c708[m HEAD@{55}: reset: moving to HEAD~1
+[33md4f12d4[m HEAD@{56}: commit: feat: Implemented Condition 4
+[33m502c708[m HEAD@{57}: checkout: moving from feature/LICs to feature/LIC-Condition4
+[33m502c708[m HEAD@{58}: checkout: moving from feature/LICs to feature/LICs
+[33m502c708[m HEAD@{59}: commit: test: add tests for condition3
+[33m43008be[m HEAD@{60}: commit: feat: add conition3
+[33m1fbe532[m HEAD@{61}: reset: moving to HEAD
+[33m1fbe532[m HEAD@{62}: reset: moving to HEAD
+[33m1fbe532[m HEAD@{63}: checkout: moving from main to feature/LICs
+[33mb94ce55[m HEAD@{64}: clone: from https://github.com/terahidro2003/save_the_world.git

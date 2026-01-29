@@ -1,6 +1,6 @@
 package com.skarbalius.LICsTests;
 
-import com.skarbalius.LIC.Conditions;
+import com.skarbalius.LIC.LICs;
 import com.skarbalius.LIC.Parameters_T;
 import com.skarbalius.LIC.Point;
 import org.junit.jupiter.api.Test;
@@ -26,7 +26,7 @@ public class LIC12Test
         params.LENGTH1 = 5.0f;   // 10 > 5
         params.LENGTH2 = 2.5f;   // 0.5 < 1
 
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
         assertTrue(conditions.LIC12(points, params));
     }
 
@@ -42,7 +42,7 @@ public class LIC12Test
         params.LENGTH1 = 5.0f;   // 10 > 5 ✓
         params.LENGTH2 = 0.5f;   // 10 < 0.5 ✗
 
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
         assertFalse(conditions.LIC12(points, params));
     }
 
@@ -58,7 +58,7 @@ public class LIC12Test
         params.LENGTH1 = 5.0f;   // 0.5 > 5 ✗
         params.LENGTH2 = 1.0f;   // 0.5 < 1 ✓
 
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
         assertFalse(conditions.LIC12(points, params));
     }
 
@@ -73,7 +73,7 @@ public class LIC12Test
         params.LENGTH1 = 5.0f;
         params.LENGTH2 = 15.0f;
 
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
         assertFalse(conditions.LIC12(points, params));
     }
 
@@ -89,7 +89,7 @@ public class LIC12Test
         params.LENGTH1 = 2.0f;   // 3 > 2 ✓
         params.LENGTH2 = 5.0f;   // 3 < 5 ✓
 
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
         assertTrue(conditions.LIC12(points, params));
     }
 }

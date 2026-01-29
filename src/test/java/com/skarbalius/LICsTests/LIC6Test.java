@@ -1,6 +1,6 @@
 package com.skarbalius.LICsTests;
 
-import com.skarbalius.LIC.Conditions;
+import com.skarbalius.LIC.LICs;
 import com.skarbalius.LIC.Parameters_T;
 import com.skarbalius.LIC.Point;
 import org.junit.jupiter.api.Test;
@@ -22,7 +22,7 @@ public class LIC6Test {
         params.N_PTS = 3;
         params.DIST = 2.0;
 
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
         assertTrue(conditions.LIC6(points, params));
     }
 
@@ -37,7 +37,7 @@ public class LIC6Test {
         params.N_PTS = 3;
         params.DIST = 2.0;
 
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
         assertFalse(conditions.LIC6(points, params));
     }
 
@@ -52,7 +52,7 @@ public class LIC6Test {
         params.N_PTS = 3;
         params.DIST = 3.0;
 
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
         assertTrue(conditions.LIC6(points, params));
     }
 
@@ -67,7 +67,7 @@ public class LIC6Test {
         params.N_PTS = 3;
         params.DIST = 3.0;
 
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
         assertFalse(conditions.LIC6(points, params));
     }
 
@@ -84,7 +84,7 @@ public class LIC6Test {
         params.N_PTS = 3;
         params.DIST = 2.0;
 
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
         assertTrue(conditions.LIC6(points, params));
     }
 
@@ -98,7 +98,7 @@ public class LIC6Test {
         params.N_PTS = 3;
         params.DIST = 1.0;
 
-        Conditions conditions = new Conditions(points, params);
+        LICs conditions = new LICs(points, params);
         assertFalse(conditions.LIC6(points, params));
     }
 }
