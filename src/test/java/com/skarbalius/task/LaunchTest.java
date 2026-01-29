@@ -2,7 +2,7 @@ package com.skarbalius.task;
 
 import org.junit.jupiter.api.Test;
 
-import com.skarbalius.LICsTests.TestParameters;
+import com.skarbalius.LICTests.TestParameters;
 
 import java.util.Vector;
 import static org.junit.jupiter.api.Assertions.*;

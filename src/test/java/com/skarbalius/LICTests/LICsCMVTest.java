@@ -1,4 +1,4 @@
-package com.skarbalius.LICsTests;
+package com.skarbalius.LICTests;
 
 import com.skarbalius.LIC.LICs;
 import com.skarbalius.LIC.Point;
