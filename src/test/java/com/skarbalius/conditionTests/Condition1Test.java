@@ -39,4 +39,31 @@ public class Condition1Test
 
         assertFalse(conditions.condition1(points, params));
     }
+
+    @Test
+    void testCondition1_PointsExactlyOnRadius_ReturnsFalse() {
+        ArrayList<Point> points = new ArrayList<>();
+        // Three points on a circle of radius 5.0 at angles 0, 120, 240 degrees
+        points.add(new Point(5.0f, 0.0f));
+        points.add(new Point(-2.5f, 4.330127f));
+        points.add(new Point(-2.5f, -4.330127f));
+
+        Parameters_T params = new TestParameters();
+        params.RADIUS1 = 5.0f; // exactly the circumradius of the three points
+
+        Conditions conditions = new Conditions(points, params);
+        assertFalse(conditions.condition1(points, params));
+    }
+
+    @Test
+    void testCondition1_TwoPoints_ReturnsFalse() {
+        ArrayList<Point> points = new ArrayList<>();
+        points.add(new Point(0.0f, 0.0f));
+        points.add(new Point(1.0f, 1.0f)); // only two points, cannot form a triple
+
+        Parameters_T params = new TestParameters();
+        Conditions conditions = new Conditions(points, params);
+
+        assertFalse(conditions.condition1(points, params));
+    }
 }
