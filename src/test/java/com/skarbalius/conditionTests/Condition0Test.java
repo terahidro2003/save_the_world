@@ -36,4 +36,27 @@ public class Condition0Test
 
         assertFalse(conditions.condition0(points, params));
     }
+
+    @Test
+    void testCondition0_DistanceEqualToLength_ReturnsFalse() {
+        ArrayList<Point> points = new ArrayList<>();
+        points.add(new Point(0, 0));
+        points.add(new Point(5, 0)); // distance = 5 equals TestParameters.LENGTH1
+
+        Parameters_T params = new TestParameters(); // LENGTH1 == 5.0f
+        Conditions conditions = new Conditions(points, params);
+
+        assertFalse(conditions.condition0(points, params));
+    }
+
+    @Test
+    void testCondition0_SinglePoint_ReturnsFalse() {
+        ArrayList<Point> points = new ArrayList<>();
+        points.add(new Point(0, 0));
+
+        Parameters_T params = new TestParameters();
+        Conditions conditions = new Conditions(points, params);
+
+        assertFalse(conditions.condition0(points, params));
+    }
 }
