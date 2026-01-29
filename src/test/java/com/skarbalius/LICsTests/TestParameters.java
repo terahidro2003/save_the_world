@@ -1,4 +1,4 @@
-package com.skarbalius.conditionTests;
+package com.skarbalius.LICsTests;
 
 import com.skarbalius.LIC.Parameters_T;
 
