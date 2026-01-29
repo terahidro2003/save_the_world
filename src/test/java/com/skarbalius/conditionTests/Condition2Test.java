@@ -37,4 +37,32 @@ public class Condition2Test
 
         assertFalse(conditions.condition2(points, params));
     }
+
+    @Test
+    void testCondition2_AngleEqualToPiMinusEpsilon_ReturnsFalse() {
+        ArrayList<Point> points = new ArrayList<>();
+        Parameters_T params = new TestParameters();
+
+        double angle = Math.PI - params.EPSILON;
+        points.add(new Point(1.0, 0.0));
+        points.add(new Point(0.0, 0.0));
+        points.add(new Point(Math.cos(angle), Math.sin(angle)));
+
+        Conditions conditions = new Conditions(points, params);
+        assertFalse(conditions.condition2(points, params));
+    }
+
+
+    @Test
+    void testCondition2_VertexCoincidesWithFirstPoint_ReturnsFalse() {
+        ArrayList<Point> points = new ArrayList<>();
+        points.add(new Point(0.0f, 0.0f)); // first point
+        points.add(new Point(0.0f, 0.0f)); // vertex coincides with first point (degenerate)
+        points.add(new Point(1.0f, 1.0f)); // third point
+
+        Parameters_T params = new TestParameters();
+        Conditions conditions = new Conditions(points, params);
+
+        assertFalse(conditions.condition2(points, params));
+    }
 }
