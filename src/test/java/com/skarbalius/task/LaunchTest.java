@@ -1,7 +1,9 @@
 package com.skarbalius.task;
 
-import com.skarbalius.conditionTests.TestParameters;
 import org.junit.jupiter.api.Test;
+
+import com.skarbalius.LICsTests.TestParameters;
+
 import java.util.Vector;
 import static org.junit.jupiter.api.Assertions.*;
 

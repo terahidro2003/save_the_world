@@ -2,7 +2,8 @@ package com.skarbalius.input;
 
 import com.skarbalius.LIC.Parameters_T;
 import com.skarbalius.LIC.Point;
-import com.skarbalius.conditionTests.TestParameters;
+import com.skarbalius.LICsTests.TestParameters;
+
 import org.junit.jupiter.api.Test;
 
 import java.io.File;

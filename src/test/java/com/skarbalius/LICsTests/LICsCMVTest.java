@@ -1,4 +1,4 @@
-package com.skarbalius.conditionTests;
+package com.skarbalius.LICsTests;
 
 import com.skarbalius.LIC.Conditions;
 import com.skarbalius.LIC.Point;
@@ -9,7 +9,7 @@ import java.util.Vector;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ConditionsCMVTest {
+public class LICsCMVTest {
 
     @Test
     void cmvHas15EntriesAndIsStable() {

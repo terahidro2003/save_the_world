@@ -1,4 +1,4 @@
-package com.skarbalius.conditionTests;
+package com.skarbalius.LICsTests;
 
 import com.skarbalius.LIC.Conditions;
 import com.skarbalius.LIC.Parameters_T;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class Condition0Test
+public class LIC0Test
 {
     @Test
     void testCondition0_PointsFarApart_ReturnsTrue() {
