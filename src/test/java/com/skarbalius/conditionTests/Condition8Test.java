@@ -26,7 +26,7 @@ public class Condition8Test {
         params.RADIUS1 = 2.0;
 
         Conditions conditions = new Conditions(points, params);
-        assertTrue(conditions.condition8(points, params));
+        assertTrue(conditions.LIC8(points, params));
     }
 
     @Test
@@ -44,7 +44,7 @@ public class Condition8Test {
         params.RADIUS1 = 2.0;
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition8(points, params));
+        assertFalse(conditions.LIC8(points, params));
     }
 
     @Test
@@ -62,7 +62,7 @@ public class Condition8Test {
         params.RADIUS1 = 1.0;
 
         Conditions conditions = new Conditions(points, params);
-        assertTrue(conditions.condition8(points, params));
+        assertTrue(conditions.LIC8(points, params));
     }
 
     @Test
@@ -80,7 +80,7 @@ public class Condition8Test {
         params.RADIUS1 = 3.0;
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition8(points, params));
+        assertFalse(conditions.LIC8(points, params));
     }
 
     @Test
@@ -99,7 +99,7 @@ public class Condition8Test {
         params.RADIUS1 = 2.0;
 
         Conditions conditions = new Conditions(points, params);
-        assertTrue(conditions.condition8(points, params));
+        assertTrue(conditions.LIC8(points, params));
     }
 
     @Test
@@ -116,6 +116,6 @@ public class Condition8Test {
         params.RADIUS1 = 1.0;
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition8(points, params));
+        assertFalse(conditions.LIC8(points, params));
     }
 }

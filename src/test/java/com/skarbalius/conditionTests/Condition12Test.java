@@ -27,7 +27,7 @@ public class Condition12Test
         params.LENGTH2 = 2.5f;   // 0.5 < 1
 
         Conditions conditions = new Conditions(points, params);
-        assertTrue(conditions.condition12(points, params));
+        assertTrue(conditions.LIC12(points, params));
     }
 
     @Test
@@ -43,7 +43,7 @@ public class Condition12Test
         params.LENGTH2 = 0.5f;   // 10 < 0.5 ✗
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition12(points, params));
+        assertFalse(conditions.LIC12(points, params));
     }
 
     @Test
@@ -59,7 +59,7 @@ public class Condition12Test
         params.LENGTH2 = 1.0f;   // 0.5 < 1 ✓
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition12(points, params));
+        assertFalse(conditions.LIC12(points, params));
     }
 
     @Test
@@ -74,7 +74,7 @@ public class Condition12Test
         params.LENGTH2 = 15.0f;
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition12(points, params));
+        assertFalse(conditions.LIC12(points, params));
     }
 
     @Test
@@ -90,6 +90,6 @@ public class Condition12Test
         params.LENGTH2 = 5.0f;   // 3 < 5 ✓
 
         Conditions conditions = new Conditions(points, params);
-        assertTrue(conditions.condition12(points, params));
+        assertTrue(conditions.LIC12(points, params));
     }
 }

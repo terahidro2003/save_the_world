@@ -28,7 +28,7 @@ public class Condition13Test
         params.RADIUS1 = 0.5;
         params.RADIUS2 = 10.0;
         Conditions conditions = new Conditions(points, params);
-        assertTrue(conditions.condition13(points, params));
+        assertTrue(conditions.LIC13(points, params));
     }
 
     @Test
@@ -47,7 +47,7 @@ public class Condition13Test
         params.RADIUS2 = 0.1; // Too small
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition13(points, params));
+        assertFalse(conditions.LIC13(points, params));
     }
 
     @Test
@@ -65,6 +65,6 @@ public class Condition13Test
         params.RADIUS2 = 10.0;
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition13(points, params));
+        assertFalse(conditions.LIC13(points, params));
     }
 }

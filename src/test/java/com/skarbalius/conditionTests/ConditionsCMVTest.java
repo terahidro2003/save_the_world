@@ -50,21 +50,21 @@ public class ConditionsCMVTest {
 
         assertEquals(15, cmv.size());
 
-        assertEquals(c.condition0(points, p),  cmv.get(0));
-        assertEquals(c.condition1(points, p),  cmv.get(1));
-        assertEquals(c.condition2(points, p),  cmv.get(2));
-        assertEquals(c.condition3(points, p),  cmv.get(3));
-        assertEquals(c.condition4(points, p),  cmv.get(4));
-        assertEquals(c.condition5(points, p),  cmv.get(5));
-        assertEquals(c.condition6(points, p),  cmv.get(6));
-        assertEquals(c.condition7(points, p),  cmv.get(7));
-        assertEquals(c.condition8(points, p),  cmv.get(8));
-        assertEquals(c.condition9(points, p),  cmv.get(9));
-        assertEquals(c.condition10(points, p), cmv.get(10));
-        assertEquals(c.condition11(points, p), cmv.get(11));
-        assertEquals(c.condition12(points, p), cmv.get(12));
-        assertEquals(c.condition13(points, p), cmv.get(13));
-        assertEquals(c.condition14(points, p), cmv.get(14));
+        assertEquals(c.LIC0(points, p),  cmv.get(0));
+        assertEquals(c.LIC1(points, p),  cmv.get(1));
+        assertEquals(c.LIC2(points, p),  cmv.get(2));
+        assertEquals(c.LIC3(points, p),  cmv.get(3));
+        assertEquals(c.LIC4(points, p),  cmv.get(4));
+        assertEquals(c.LIC5(points, p),  cmv.get(5));
+        assertEquals(c.LIC6(points, p),  cmv.get(6));
+        assertEquals(c.LIC7(points, p),  cmv.get(7));
+        assertEquals(c.LIC8(points, p),  cmv.get(8));
+        assertEquals(c.LIC9(points, p),  cmv.get(9));
+        assertEquals(c.LIC10(points, p), cmv.get(10));
+        assertEquals(c.LIC11(points, p), cmv.get(11));
+        assertEquals(c.LIC12(points, p), cmv.get(12));
+        assertEquals(c.LIC13(points, p), cmv.get(13));
+        assertEquals(c.LIC14(points, p), cmv.get(14));
     }
 
     @Test

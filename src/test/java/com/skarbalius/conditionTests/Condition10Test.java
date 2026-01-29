@@ -27,7 +27,7 @@ public class Condition10Test
         params.AREA1 = 5.0f; // Triangle area is 12.5
 
         Conditions conditions = new Conditions(points, params);
-        assertTrue(conditions.condition10(points, params));
+        assertTrue(conditions.LIC10(points, params));
     }
 
     @Test
@@ -45,7 +45,7 @@ public class Condition10Test
         params.AREA1 = 10.0f;
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition10(points, params));
+        assertFalse(conditions.LIC10(points, params));
     }
 
     @Test
@@ -61,6 +61,6 @@ public class Condition10Test
         params.AREA1 = 0.1f;
 
         Conditions conditions = new Conditions(points, params);
-        assertFalse(conditions.condition10(points, params));
+        assertFalse(conditions.LIC10(points, params));
     }
 }
