@@ -1,13 +1,17 @@
 package com.skarbalius;
 
-import com.skarbalius.task.CMVHandler;
-import com.skarbalius.task.TaskContext;
-import com.skarbalius.task.TaskHandler;
+import java.io.File;
 
 public class Main {
     public static void main(String[] args) {
-        TaskContext context = new TaskContext();
-        TaskHandler handler = new CMVHandler();
-        handler.handle(context);
+        if (args.length != 2) {
+            System.out.println("Usage: java -jar DECIDE.jar <inputFilePath> <outputFilePath>");
+            return;
+        }
+
+        File inputFile = new File(args[0]);
+        File outputFile = new File(args[1]);
+
+        DECIDE.execute(inputFile, outputFile);
     }
 }

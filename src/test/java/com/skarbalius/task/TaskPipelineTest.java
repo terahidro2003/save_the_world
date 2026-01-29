@@ -37,6 +37,13 @@ class TaskPipelineTest {
             context.lcm.add(row);
         }
 
+         // Mock PUV matrix 
+        context.puv = new Vector<>(15);
+        for (int j = 0; j < 14; j++){
+            context.puv.add(true);
+        }
+        context.puv.add(false);
+
         TaskHandler cmvHandler = new CMVHandler();
         cmvHandler.handle(context);
         context = cmvHandler.getContext();
@@ -66,6 +73,13 @@ class TaskPipelineTest {
             for (int j = 0; j < 15; j++) row.add(BooleanOperator.NOTUSED);
             context.lcm.add(row);
         }
+
+        // Mock PUV matrix 
+        context.puv = new Vector<>(15);
+        for (int j = 0; j < 14; j++){
+            context.puv.add(true);
+        }
+        context.puv.add(false);
 
         context.lcm.get(0).set(1, BooleanOperator.ANDD); 
         context.lcm.get(1).set(0, BooleanOperator.ANDD);

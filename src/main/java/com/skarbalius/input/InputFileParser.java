@@ -20,7 +20,7 @@ public class InputFileParser {
         }
     }
 
-    public void writeInputFile(File outputFile, Input input) {
+    public static void writeInputFile(File outputFile, Input input) {
         try {
             if (!outputFile.exists()) {
                 outputFile.createNewFile();
